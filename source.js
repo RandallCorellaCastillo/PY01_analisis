@@ -6,6 +6,12 @@
 x = "";
 
 /**
+ * @type {int[]}
+ * possibles values.
+ */
+values = [1,2,3,4,5,6,7,8,9];  
+
+/**
  * @type {int[][]}
  * Main matrix.
  * **/
@@ -17,7 +23,7 @@ sudoMatrix =
   [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [x, x, x, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, x, x, x],
@@ -68,92 +74,135 @@ function clearMatrix() {
 }
 
 /**
- * @abstract search if n is a valid value in this position.
- * @param x : values of the row.
- * @param y : values of the column.
- * @param n : index of the position insert value.
- * @param mx : max value of x.
- * @param my : max value of y.
- * @param n : number to insert.
+ * @abstract shuffle the list of numbers.
+ * @param list : list with numnbers.
  */
-function insertValueXY(x, y, mx, my, n) { 
-  switchValue = true;
-  //=====================================================
-  eq = 0;//value of substract.
-  for (let i = 0; i < 9; i++) { //iter the row.
-    if(mx < x + i) {eq = 9;} // if the row pass the max X. Reset the x.
-    if(sudoMatrix[x + i - eq][y] == n) {switchValue = false;} //if n is in row. put on switch.
+function shuffleArray(list) {
+  for (let i = 0; i < 10; i++) {
+    random = Math.floor(Math.random() *list.length);
+    randomc = Math.floor(Math.random() *list.length);
+    c = list[random];
+    k = list[randomc];
+    list[randomc] = c;
+    list[random] = k;
   }
-  //======================================================
-  eq = 0; //reset the value of subs.
-  for (let i = 0; i < 9; i++) { //iter the col
-    if (my < y) {eq = 9;} //if the column pass the max Y. Reset y.
-    if (sudoMatrix[x][y + i - eq] == n) {switchValue = false;} //if n is in column. put on switch.
-  }
-  //======================================================
-  if (switchValue) {sudoMatrix[x][y] = n; return 1;} // if can put n.
-  return -1;//if fail.
+  return list;
 }
 
 /**
- * @abstract fill the 9x9 on the matrix.
- * @param initX : start X index to fill.
- * @param initY : start Y index to fill.
+ * @abstract reset the list.
  */
-function fillM(initX, initY) {
-  count = 0;
-  while (!ifFill(initX, initY)) {//if the matrix is not full.
-    YrandomIndex = Math.floor(Math.random() * 9) + initX;
-    XrandomIndex = Math.floor(Math.random() * 9) + initY;
-    randomValue = Math.floor(Math.random() * 9) + 1; // 1-9
-    //console.log("Cords: " + XrandomIndex + YrandomIndex + "==== n: " + randomValue);
-    insertValueXY(XrandomIndex, YrandomIndex, initX + 9, initY + 9, randomValue);
-    count++;
+function reset() {
+  values = [1,2,3,4,5,6,7,8,9];
+}
+
+
+/**
+ * @abstract find the cube from cords.
+ * @param {*} n : number.
+ * @param {*} x : cord x.
+ * @param {*} y : cordy.
+ * @param {*} mx : limitx.
+ * @param {*} my : limity.
+ * @returns 
+ */
+function findCube(x, y, mx, my) {
+  dimX = -1*((mx - 8) - x);
+  dimY = -1*((my - 8) - y);
+
+  if(dimX < 3) {
+    if(dimY < 3) {return 0;}
+    if(dimY < 6) {return 1;}
+    if(dimY < 9) {return 2;}
   }
-  console.log("count: " + count);
-  return -1;
+  if(dimX < 6) {
+    if(dimY < 3) {return 3;}
+    if(dimY < 6) {return 4;}
+    if(dimY < 9) {return 5;}
+  }
+  if(dimX < 9) {
+    if(dimY < 3) {return 6;}
+    if(dimY < 6) {return 7;}
+    if(dimY < 9) {return 8;}
+  }
 }
 
 /**
- * @abstract check status of the matrix.
- * @param initX : start X index to fill.
- * @param initY : start Y index to fill.
+ * @abstract verify if the value is valid in this pos.
+ * @param {*} n : number.
+ * @param {*} x : cord x.
+ * @param {*} y : cordy.
+ * @param {*} mx : limitx.
+ * @param {*} my : limity.
+ * @returns 
  */
-function ifFill(initX, initY) {
-  switchValue = true; 
-  for (let i = initX; i < initX + 9; i++) { // row.
-    for (let j = initY; j < initY + 9; j++) { //col.
-      if(sudoMatrix[i][j] == 0) {switchValue = false;}
-    }
+function crossVerify(n, x, y, mx, my) {
+  for (let i = mx - 8; i < mx; i++) {if(sudoMatrix[i][y] == n) {return false;}}//if Hor contains a number.
+  for (let j = my - 8; j < my; j++) {if(sudoMatrix[x][j] == n) {return false;}}//if Ver contains a number.
+  return true;
+}
+
+/**
+ * @abstract verify if the value is valid in this pos.
+ * @param {*} n : number.
+ * @param {*} x : cord x.
+ * @param {*} y : cordy.
+ * @param {*} mx : limitx.
+ * @param {*} my : limity.
+ * @returns 
+ */
+function cubeVerify(n, x, y, mx, my) {
+  cube = findCube(x, y, mx, my);
+  cordx = mx - 8;
+  cordy = my - 8;
+  if(cube == 1) {cordy += 3}
+  if(cube == 2) {cordy += 5}
+  if(cube == 3) {cordx += 2}
+  if(cube == 4) {cordy += 2; cordx += 2}
+  if(cube == 5) {cordy += 5; cordx += 2}
+  if(cube == 6) {cordx += 5}
+  if(cube == 7) {cordy += 3; cordx += 5}
+  if(cube == 8) {cordy += 5; cordx += 5}
+
+  for (let i = 0; i < 3; i++) {
+    var res;
+    for (let j = 0; j < 3; j++) {
+      res += sudoMatrix[i + cordx][j + cordy] + " ";
+      if(sudoMatrix[i + cordx][j + cordy] == n){return false;}
+    }//if Ver contains a number.
+    res += "\n";
   }
-  return switchValue;
+  return true;
 }
 
 
-function printM() {
-  //for (let i = 0; i < 9; i++) {insertValueXY(5 + i, 6, 14, 14, i);}
-  //for (let i = 0; i < 10; i++) {insertValueXY(6, 5 + i, 14, 14, i);} 
-  fillM(6, 6);
-  fillM(0, 0);
-  //fillM(0, 12); 
-  //fillM(12, 0);
-  //fillM(12, 12);
-  //ifFill(6, 6);
-  sudoMatrix[0][12] = "L"
-  //console.log("finish iter");
-
-  var res;
-  for (let i = 0; i < 21; i++) {
-    res+= "\n";
-    for (let j = 0; j < 21; j++) {
-      if(sudoMatrix[i][j] == "") {
-        res += 0;
-      } else {
-        res += sudoMatrix[i][j];
+function init_matrix(x, y, mx, my, cant) {
+  //iter the row.
+  for (let i = 0; i != cant; i++ ) {
+    for (let j = x; j < x + 9; j++) { //iter the row.
+      val = Math.floor(Math.random() * 9 + 1);
+      for (let k = y; k < y + 9; k++) {
+        if(crossVerify(val, j, k, mx, my) && cubeVerify(val, j, k, mx, my) && sudoMatrix[j][k] == 0) {
+          sudoMatrix[j][k]=val;
+        }
       }
-      res += " "
     }
   }
-  console.log(res);
-  
 }
+ 
+function drawM() {
+  clearMatrix();
+  init_matrix(6, 6, 14, 14, 1);
+  init_matrix(0, 0, 8, 8, 1);
+  init_matrix(0, 12, 8, 20, 1);
+  init_matrix(12, 0, 20, 8, 1);
+  init_matrix(12, 12, 20, 20, 1);
+  count = 1;
+  for (let i = 0; i < 21; i++) {
+    for (let j = 0; j < 21; j++) {
+      document.getElementById(count).innerHTML = sudoMatrix[i][j];
+      count++;
+    }
+  }
+}
+

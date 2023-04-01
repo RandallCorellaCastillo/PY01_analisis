@@ -207,7 +207,10 @@ function drawM() {
   count = 1;
   for (let i = 0; i < 21; i++) {
     for (let j = 0; j < 21; j++) {
-      document.getElementById(count).innerHTML = sudoMatrix[i][j];
+      if(sudoMatrix[i][j] != 0) {
+        document.getElementById(count).innerHTML = sudoMatrix[i][j];
+        
+      }
       count++;
     }
   }
@@ -215,10 +218,14 @@ function drawM() {
 
 function setId(id) {
   id_selected = id;
-  document.getElementById(id_selected).style.backgroundColor = "red";
-  console.log("Here is id:" + id);
 }
 
+
+/**
+ * @abstract change color of invalid positions of matrix.
+ * @returns none.
+ * @param none.
+ */
 function blackCells() {
   pos = 10;
   flag = true;
@@ -242,7 +249,50 @@ function blackCells() {
     }
     flag = false;
   }
-  
 }
 
+
+
+//
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+
+  switch (event.key) {
+    case "1":
+      document.getElementById(id_selected).innerHTML = "1";
+      break;
+    case "2":
+      document.getElementById(id_selected).innerHTML = "2";
+      break;
+    case "3":
+      document.getElementById(id_selected).innerHTML = "3";
+      break;
+    case "4":
+      document.getElementById(id_selected).innerHTML = "4";
+      break;
+    case "5":
+      document.getElementById(id_selected).innerHTML = "5";
+      break;
+    case "6":
+      document.getElementById(id_selected).innerHTML = "6";
+      break;
+    case "7":
+      document.getElementById(id_selected).innerHTML = "7";
+      break;
+    case "8":
+      document.getElementById(id_selected).innerHTML = "8";
+      break;
+    case "9":
+      document.getElementById(id_selected).innerHTML = "9";
+      break;
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+  }
+}, true);
+
+
+//disable divs in invalid positions.
 blackCells();

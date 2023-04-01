@@ -8,212 +8,211 @@
 <body style="background-color: white;">
     <h1 class="title"> Sudoku Samurai</h1>
     <h1 class="reset" id = "reset" onclick="drawM()"> draw </h1>
-    <td><input id = "in" type="text"></td>
     <section class="board" id = "board">
-        <div class = "box" id="1"></div>
-        <div class = "box" id="2"></div>
-        <div class = "box" id="3"></div>
-        <div class = "box" id="4"></div>
-        <div class = "box" id="5"></div>
-        <div class = "box" id="6"></div>
-        <div class = "box" id="7"></div>
-        <div class = "box" id="8"></div>
-        <div class = "box" id="9"></div>
+        <div class = "box" id="1" onclick="setId(1)"></div>
+        <div class = "box" id="2" onclick="setId(2)"></div>
+        <div class = "box" id="3" onclick="setId(3)"></div>
+        <div class = "box" id="4" onclick="setId(4)"></div>
+        <div class = "box" id="5" onclick="setId(5)"></div>
+        <div class = "box" id="6" onclick="setId(6)"></div>
+        <div class = "box" id="7" onclick="setId(7)"></div>
+        <div class = "box" id="8" onclick="setId(8)"></div>
+        <div class = "box" id="9" onclick="setId(9)"></div>
         <div class = "box" id="10"></div>
         <div class = "box" id="11"></div>
         <div class = "box" id="12"></div>
-        <div class = "box" id="13"></div>
-        <div class = "box" id="14"></div>
-        <div class = "box" id="15"></div>
-        <div class = "box" id="16"></div>
-        <div class = "box" id="17"></div>
-        <div class = "box" id="18"></div>
-        <div class = "box" id="19"></div>
-        <div class = "box" id="20"></div>
-        <div class = "box" id="21"></div>
-        <div class = "box" id="22"></div>
-        <div class = "box" id="23"></div>
-        <div class = "box" id="24"></div>
-        <div class = "box" id="25"></div>
-        <div class = "box" id="26"></div>
-        <div class = "box" id="27"></div>
-        <div class = "box" id="28"></div>
-        <div class = "box" id="29"></div>
-        <div class = "box" id="30"></div>
+        <div class = "box" id="13" onclick="setId(13)"></div>
+        <div class = "box" id="14" onclick="setId(14)"></div>
+        <div class = "box" id="15" onclick="setId(15)"></div>
+        <div class = "box" id="16" onclick="setId(16)"></div>
+        <div class = "box" id="17" onclick="setId(17)"></div>
+        <div class = "box" id="18" onclick="setId(18)"></div>
+        <div class = "box" id="19" onclick="setId(19)"></div>
+        <div class = "box" id="20" onclick="setId(20)"></div>
+        <div class = "box" id="21" onclick="setId(21)"></div>
+        <div class = "box" id="22" onclick="setId(22)"></div>
+        <div class = "box" id="23" onclick="setId(23)"></div>
+        <div class = "box" id="24" onclick="setId(24)"></div>
+        <div class = "box" id="25" onclick="setId(25)"></div>
+        <div class = "box" id="26" onclick="setId(26)"></div>
+        <div class = "box" id="27" onclick="setId(27)"></div>
+        <div class = "box" id="28" onclick="setId(28)"></div>
+        <div class = "box" id="29" onclick="setId(29)"></div>
+        <div class = "box" id="30" onclick="setId(30)"></div>
         <div class = "box" id="31"></div>
         <div class = "box" id="32"></div>
         <div class = "box" id="33"></div>
-        <div class = "box" id="34"></div>
-        <div class = "box" id="35"></div>
-        <div class = "box" id="36"></div>
-        <div class = "box" id="37"></div>
-        <div class = "box" id="38"></div>
-        <div class = "box" id="39"></div>
-        <div class = "box" id="40"></div>
-        <div class = "box" id="41"></div>
-        <div class = "box" id="42"></div>
-        <div class = "box" id="43"></div>
-        <div class = "box" id="44"></div>
-        <div class = "box" id="45"></div>
-        <div class = "box" id="46"></div>
-        <div class = "box" id="47"></div>
-        <div class = "box" id="48"></div>
-        <div class = "box" id="49"></div>
-        <div class = "box" id="50"></div>
-        <div class = "box" id="51"></div>
+        <div class = "box" id="34" onclick="setId(34)"></div>
+        <div class = "box" id="35" onclick="setId(35)"></div>
+        <div class = "box" id="36" onclick="setId(36)"></div>
+        <div class = "box" id="37" onclick="setId(37)"></div>
+        <div class = "box" id="38" onclick="setId(38)"></div>
+        <div class = "box" id="39" onclick="setId(39)"></div>
+        <div class = "box" id="40" onclick="setId(40)"></div>
+        <div class = "box" id="41" onclick="setId(41)"></div>
+        <div class = "box" id="42" onclick="setId(42)"></div>
+        <div class = "box" id="43" onclick="setId(43)"></div>
+        <div class = "box" id="44" onclick="setId(44)"></div>
+        <div class = "box" id="45" onclick="setId(45)"></div>
+        <div class = "box" id="46" onclick="setId(46)"></div>
+        <div class = "box" id="47" onclick="setId(47)"></div>
+        <div class = "box" id="48" onclick="setId(48)"></div>
+        <div class = "box" id="49" onclick="setId(49)"></div>
+        <div class = "box" id="50" onclick="setId(50)"></div>
+        <div class = "box" id="51" onclick="setId(51)"></div>
         <div class = "box" id="52"></div>
         <div class = "box" id="53"></div>
         <div class = "box" id="54"></div>
-        <div class = "box" id="55"></div>
-        <div class = "box" id="56"></div>
-        <div class = "box" id="57"></div>
-        <div class = "box" id="58"></div>
-        <div class = "box" id="59"></div>
-        <div class = "box" id="60"></div>
-        <div class = "box" id="61"></div>
-        <div class = "box" id="62"></div>
-        <div class = "box" id="63"></div>
-        <div class = "box" id="64"></div>
-        <div class = "box" id="65"></div>
-        <div class = "box" id="66"></div>
-        <div class = "box" id="67"></div>
-        <div class = "box" id="68"></div>
-        <div class = "box" id="69"></div>
-        <div class = "box" id="70"></div>
-        <div class = "box" id="71"></div>
-        <div class = "box" id="72"></div>
+        <div class = "box" id="55" onclick="setId(55)"></div>
+        <div class = "box" id="56" onclick="setId(56)"></div>
+        <div class = "box" id="57" onclick="setId(57)"></div>
+        <div class = "box" id="58" onclick="setId(58)"></div>
+        <div class = "box" id="59" onclick="setId(59)"></div>
+        <div class = "box" id="60" onclick="setId(60)"></div>
+        <div class = "box" id="61" onclick="setId(61)"></div>
+        <div class = "box" id="62" onclick="setId(62)"></div>
+        <div class = "box" id="63" onclick="setId(63)"></div>
+        <div class = "box" id="64" onclick="setId(64)"></div>
+        <div class = "box" id="65" onclick="setId(65)"></div>
+        <div class = "box" id="66" onclick="setId(66)"></div>
+        <div class = "box" id="67" onclick="setId(67)"></div>
+        <div class = "box" id="68" onclick="setId(68)"></div>
+        <div class = "box" id="69" onclick="setId(69)"></div>
+        <div class = "box" id="70" onclick="setId(70)"></div>
+        <div class = "box" id="71" onclick="setId(71)"></div>
+        <div class = "box" id="72" onclick="setId(72)"></div>
         <div class = "box" id="73"></div>
         <div class = "box" id="74"></div>
         <div class = "box" id="75"></div>
-        <div class = "box" id="76"></div>
-        <div class = "box" id="77"></div>
-        <div class = "box" id="78"></div>
-        <div class = "box" id="79"></div>
-        <div class = "box" id="80"></div>
-        <div class = "box" id="81"></div>
-        <div class = "box" id="82"></div>
-        <div class = "box" id="83"></div>
-        <div class = "box" id="84"></div>
-        <div class = "box" id="85"></div>
-        <div class = "box" id="86"></div>
-        <div class = "box" id="87"></div>
-        <div class = "box" id="88"></div>
-        <div class = "box" id="89"></div>
-        <div class = "box" id="90"></div>
-        <div class = "box" id="91"></div>
-        <div class = "box" id="92"></div>
-        <div class = "box" id="93"></div>
+        <div class = "box" id="76" onclick="setId(76)"></div>
+        <div class = "box" id="77" onclick="setId(77)"></div>
+        <div class = "box" id="78" onclick="setId(78)"></div>
+        <div class = "box" id="79" onclick="setId(79)"></div>
+        <div class = "box" id="80" onclick="setId(80)"></div>
+        <div class = "box" id="81" onclick="setId(81)"></div>
+        <div class = "box" id="82" onclick="setId(82)"></div>
+        <div class = "box" id="83" onclick="setId(83)"></div>
+        <div class = "box" id="84" onclick="setId(84)"></div>
+        <div class = "box" id="85" onclick="setId(85)"></div>
+        <div class = "box" id="86" onclick="setId(86)"></div>
+        <div class = "box" id="87" onclick="setId(87)"></div>
+        <div class = "box" id="88" onclick="setId(88)"></div>
+        <div class = "box" id="89" onclick="setId(89)"></div>
+        <div class = "box" id="90" onclick="setId(90)"></div>
+        <div class = "box" id="91" onclick="setId(91)"></div>
+        <div class = "box" id="92" onclick="setId(92)"></div>
+        <div class = "box" id="93" onclick="setId(93)"></div>
         <div class = "box" id="94"></div>
         <div class = "box" id="95"></div>
         <div class = "box" id="96"></div>
-        <div class = "box" id="97"></div>
-        <div class = "box" id="98"></div>
-        <div class = "box" id="99"></div>
-        <div class = "box" id="100"></div>
-        <div class = "box" id="101"></div>
-        <div class = "box" id="102"></div>
-        <div class = "box" id="103"></div>
-        <div class = "box" id="104"></div>
-        <div class = "box" id="105"></div>
-        <div class = "box" id="106"></div>
-        <div class = "box" id="107"></div>
-        <div class = "box" id="108"></div>
-        <div class = "box" id="109"></div>
-        <div class = "box" id="110"></div>
-        <div class = "box" id="111"></div>
-        <div class = "box" id="112"></div>
-        <div class = "box" id="113"></div>
-        <div class = "box" id="114"></div>
+        <div class = "box" id="97" onclick="setId(97)"></div>
+        <div class = "box" id="98" onclick="setId(98)"></div>
+        <div class = "box" id="99" onclick="setId(99)"></div>
+        <div class = "box" id="100" onclick="setId(100)"></div>
+        <div class = "box" id="101" onclick="setId(101)"></div>
+        <div class = "box" id="102" onclick="setId(102)"></div>
+        <div class = "box" id="103" onclick="setId(103)"></div>
+        <div class = "box" id="104" onclick="setId(104)"></div>
+        <div class = "box" id="105" onclick="setId(105)"></div>
+        <div class = "box" id="106" onclick="setId(106)"></div>
+        <div class = "box" id="107" onclick="setId(107)"></div>
+        <div class = "box" id="108" onclick="setId(108)"></div>
+        <div class = "box" id="109" onclick="setId(109)"></div>
+        <div class = "box" id="110" onclick="setId(110)"></div>
+        <div class = "box" id="111" onclick="setId(111)"></div>
+        <div class = "box" id="112" onclick="setId(112)"></div>
+        <div class = "box" id="113" onclick="setId(113)"></div>
+        <div class = "box" id="114" onclick="setId(114)"></div>
         <div class = "box" id="115"></div>
         <div class = "box" id="116"></div>
         <div class = "box" id="117"></div>
-        <div class = "box" id="118"></div>
-        <div class = "box" id="119"></div>
-        <div class = "box" id="120"></div>
-        <div class = "box" id="121"></div>
-        <div class = "box" id="122"></div>
-        <div class = "box" id="123"></div>
-        <div class = "box" id="124"></div>
-        <div class = "box" id="125"></div>
-        <div class = "box" id="126"></div>
-        <div class = "box" id="127"></div>
-        <div class = "box" id="128"></div>
-        <div class = "box" id="129"></div>
-        <div class = "box" id="130"></div>
-        <div class = "box" id="131"></div>
-        <div class = "box" id="132"></div>
-        <div class = "box" id="133"></div>
-        <div class = "box" id="134"></div>
-        <div class = "box" id="135"></div>
-        <div class = "box" id="136"></div>
-        <div class = "box" id="137"></div>
-        <div class = "box" id="138"></div>
-        <div class = "box" id="139"></div>
-        <div class = "box" id="140"></div>
-        <div class = "box" id="141"></div>
-        <div class = "box" id="142"></div>
-        <div class = "box" id="143"></div>
-        <div class = "box" id="144"></div>
-        <div class = "box" id="145"></div>
-        <div class = "box" id="146"></div>
-        <div class = "box" id="147"></div>
-        <div class = "box" id="148"></div>
-        <div class = "box" id="149"></div>
-        <div class = "box" id="150"></div>
-        <div class = "box" id="151"></div>
-        <div class = "box" id="152"></div>
-        <div class = "box" id="153"></div>
-        <div class = "box" id="154"></div>
-        <div class = "box" id="155"></div>
-        <div class = "box" id="156"></div>
-        <div class = "box" id="157"></div>
-        <div class = "box" id="158"></div>
-        <div class = "box" id="159"></div>
-        <div class = "box" id="160"></div>
-        <div class = "box" id="161"></div>
-        <div class = "box" id="162"></div>
-        <div class = "box" id="163"></div>
-        <div class = "box" id="164"></div>
-        <div class = "box" id="165"></div>
-        <div class = "box" id="166"></div>
-        <div class = "box" id="167"></div>
-        <div class = "box" id="168"></div>
-        <div class = "box" id="169"></div>
-        <div class = "box" id="170"></div>
-        <div class = "box" id="171"></div>
-        <div class = "box" id="172"></div>
-        <div class = "box" id="173"></div>
-        <div class = "box" id="174"></div>
-        <div class = "box" id="175"></div>
-        <div class = "box" id="176"></div>
-        <div class = "box" id="177"></div>
-        <div class = "box" id="178"></div>
-        <div class = "box" id="179"></div>
-        <div class = "box" id="180"></div>
-        <div class = "box" id="181"></div>
-        <div class = "box" id="182"></div>
-        <div class = "box" id="183"></div>
-        <div class = "box" id="184"></div>
-        <div class = "box" id="185"></div>
-        <div class = "box" id="186"></div>
-        <div class = "box" id="187"></div>
-        <div class = "box" id="188"></div>
-        <div class = "box" id="189"></div>
+        <div class = "box" id="118" onclick="setId(118)"></div>
+        <div class = "box" id="119" onclick="setId(119)"></div>
+        <div class = "box" id="120" onclick="setId(120)"></div>
+        <div class = "box" id="121" onclick="setId(121)"></div>
+        <div class = "box" id="122" onclick="setId(122)"></div>
+        <div class = "box" id="123" onclick="setId(123)"></div>
+        <div class = "box" id="124" onclick="setId(124)"></div>
+        <div class = "box" id="125" onclick="setId(125)"></div>
+        <div class = "box" id="126" onclick="setId(126)"></div>
+        <div class = "box" id="127" onclick="setId(127)"></div>
+        <div class = "box" id="128" onclick="setId(128)"></div>
+        <div class = "box" id="129" onclick="setId(129)"></div>
+        <div class = "box" id="130" onclick="setId(130)"></div>
+        <div class = "box" id="131" onclick="setId(131)"></div>
+        <div class = "box" id="132" onclick="setId(132)"></div>
+        <div class = "box" id="133" onclick="setId(133)"></div>
+        <div class = "box" id="134" onclick="setId(134)"></div>
+        <div class = "box" id="135" onclick="setId(135)"></div>
+        <div class = "box" id="136" onclick="setId(136)"></div>
+        <div class = "box" id="137" onclick="setId(137)"></div>
+        <div class = "box" id="138" onclick="setId(138)"></div>
+        <div class = "box" id="139" onclick="setId(139)"></div>
+        <div class = "box" id="140" onclick="setId(140)"></div>
+        <div class = "box" id="141" onclick="setId(141)"></div>
+        <div class = "box" id="142" onclick="setId(142)"></div>
+        <div class = "box" id="143" onclick="setId(143)"></div>
+        <div class = "box" id="144" onclick="setId(144)"></div>
+        <div class = "box" id="145" onclick="setId(145)"></div>
+        <div class = "box" id="146" onclick="setId(146)"></div>
+        <div class = "box" id="147" onclick="setId(147)"></div>
+        <div class = "box" id="148" onclick="setId(148)"></div>
+        <div class = "box" id="149" onclick="setId(149)"></div>
+        <div class = "box" id="150" onclick="setId(150)"></div>
+        <div class = "box" id="151" onclick="setId(151)"></div>
+        <div class = "box" id="152" onclick="setId(152)"></div>
+        <div class = "box" id="153" onclick="setId(153)"></div>
+        <div class = "box" id="154" onclick="setId(154)"></div>
+        <div class = "box" id="155" onclick="setId(155)"></div>
+        <div class = "box" id="156" onclick="setId(156)"></div>
+        <div class = "box" id="157" onclick="setId(157)"></div>
+        <div class = "box" id="158" onclick="setId(158)"></div>
+        <div class = "box" id="159" onclick="setId(159)"></div>
+        <div class = "box" id="160" onclick="setId(160)"></div>
+        <div class = "box" id="161" onclick="setId(161)"></div>
+        <div class = "box" id="162" onclick="setId(162)"></div>
+        <div class = "box" id="163" onclick="setId(163)"></div>
+        <div class = "box" id="164" onclick="setId(164)"></div>
+        <div class = "box" id="165" onclick="setId(165)"></div>
+        <div class = "box" id="166" onclick="setId(166)"></div>
+        <div class = "box" id="167" onclick="setId(167)"></div>
+        <div class = "box" id="168" onclick="setId(168)"></div>
+        <div class = "box" id="169" onclick="setId(169)"></div>
+        <div class = "box" id="170" onclick="setId(170)"></div>
+        <div class = "box" id="171" onclick="setId(171)"></div>
+        <div class = "box" id="172" onclick="setId(172)"></div>
+        <div class = "box" id="173" onclick="setId(173)"></div>
+        <div class = "box" id="174" onclick="setId(174)"></div>
+        <div class = "box" id="175" onclick="setId(175)"></div>
+        <div class = "box" id="176" onclick="setId(176)"></div>
+        <div class = "box" id="177" onclick="setId(177)"></div>
+        <div class = "box" id="178" onclick="setId(178)"></div>
+        <div class = "box" id="179" onclick="setId(179)"></div>
+        <div class = "box" id="180" onclick="setId(180)"></div>
+        <div class = "box" id="181" onclick="setId(181)"></div>
+        <div class = "box" id="182" onclick="setId(182)"></div>
+        <div class = "box" id="183" onclick="setId(183)"></div>
+        <div class = "box" id="184" onclick="setId(184)"></div>
+        <div class = "box" id="185" onclick="setId(185)"></div>
+        <div class = "box" id="186" onclick="setId(186)"></div>
+        <div class = "box" id="187" onclick="setId(187)"></div>
+        <div class = "box" id="188" onclick="setId(188)"></div>
+        <div class = "box" id="189" onclick="setId(189)"></div>
         <div class = "box" id="190"></div>
         <div class = "box" id="191"></div>
         <div class = "box" id="192"></div>
         <div class = "box" id="193"></div>
         <div class = "box" id="194"></div>
         <div class = "box" id="195"></div>
-        <div class = "box" id="196"></div>
-        <div class = "box" id="197"></div>
-        <div class = "box" id="198"></div>
-        <div class = "box" id="199"></div>
-        <div class = "box" id="200"></div>
-        <div class = "box" id="201"></div>
-        <div class = "box" id="202"></div>
-        <div class = "box" id="203"></div>
-        <div class = "box" id="204"></div>
+        <div class = "box" id="196" onclick="setId(196)"></div>
+        <div class = "box" id="197" onclick="setId(197)"></div>
+        <div class = "box" id="198" onclick="setId(198)"></div>
+        <div class = "box" id="199" onclick="setId(199)"></div>
+        <div class = "box" id="200" onclick="setId(200)"></div>
+        <div class = "box" id="201" onclick="setId(201)"></div>
+        <div class = "box" id="202" onclick="setId(202)"></div>
+        <div class = "box" id="203" onclick="setId(203)"></div>
+        <div class = "box" id="204" onclick="setId(204)"></div>
         <div class = "box" id="205"></div>
         <div class = "box" id="206"></div>
         <div class = "box" id="207"></div>
@@ -226,15 +225,15 @@
         <div class = "box" id="214"></div>
         <div class = "box" id="215"></div>
         <div class = "box" id="216"></div>
-        <div class = "box" id="217"></div>
-        <div class = "box" id="218"></div>
-        <div class = "box" id="219"></div>
-        <div class = "box" id="220"></div>
-        <div class = "box" id="221"></div>
-        <div class = "box" id="222"></div>
-        <div class = "box" id="223"></div>
-        <div class = "box" id="224"></div>
-        <div class = "box" id="225"></div>
+        <div class = "box" id="217" onclick="setId(217)"></div>
+        <div class = "box" id="218" onclick="setId(218)"></div>
+        <div class = "box" id="219" onclick="setId(219)"></div>
+        <div class = "box" id="220" onclick="setId(220)"></div>
+        <div class = "box" id="221" onclick="setId(221)"></div>
+        <div class = "box" id="222" onclick="setId(222)"></div>
+        <div class = "box" id="223" onclick="setId(223)"></div>
+        <div class = "box" id="224" onclick="setId(224)"></div>
+        <div class = "box" id="225" onclick="setId(225)"></div>
         <div class = "box" id="226"></div>
         <div class = "box" id="227"></div>
         <div class = "box" id="228"></div>
@@ -247,210 +246,212 @@
         <div class = "box" id="235"></div>
         <div class = "box" id="236"></div>
         <div class = "box" id="237"></div>
-        <div class = "box" id="238"></div>
-        <div class = "box" id="239"></div>
-        <div class = "box" id="240"></div>
-        <div class = "box" id="241"></div>
-        <div class = "box" id="242"></div>
-        <div class = "box" id="243"></div>
-        <div class = "box" id="244"></div>
-        <div class = "box" id="245"></div>
-        <div class = "box" id="246"></div>
+        <div class = "box" id="238" onclick="setId(238)"></div>
+        <div class = "box" id="239" onclick="setId(239)"></div>
+        <div class = "box" id="240" onclick="setId(240)"></div>
+        <div class = "box" id="241" onclick="setId(241)"></div>
+        <div class = "box" id="242" onclick="setId(242)"></div>
+        <div class = "box" id="243" onclick="setId(243)"></div>
+        <div class = "box" id="244" onclick="setId(244)"></div>
+        <div class = "box" id="245" onclick="setId(245)"></div>
+        <div class = "box" id="246" onclick="setId(246)"></div>
         <div class = "box" id="247"></div>
         <div class = "box" id="248"></div>
         <div class = "box" id="249"></div>
         <div class = "box" id="250"></div>
         <div class = "box" id="251"></div>
         <div class = "box" id="252"></div>
-        <div class = "box" id="253"></div>
-        <div class = "box" id="254"></div>
-        <div class = "box" id="255"></div>
-        <div class = "box" id="256"></div>
-        <div class = "box" id="257"></div>
-        <div class = "box" id="258"></div>
-        <div class = "box" id="259"></div>
-        <div class = "box" id="260"></div>
-        <div class = "box" id="261"></div>
-        <div class = "box" id="262"></div>
-        <div class = "box" id="263"></div>
-        <div class = "box" id="264"></div>
-        <div class = "box" id="265"></div>
-        <div class = "box" id="266"></div>
-        <div class = "box" id="267"></div>
-        <div class = "box" id="268"></div>
-        <div class = "box" id="269"></div>
-        <div class = "box" id="270"></div>
-        <div class = "box" id="271"></div>
-        <div class = "box" id="272"></div>
-        <div class = "box" id="273"></div>
-        <div class = "box" id="274"></div>
-        <div class = "box" id="275"></div>
-        <div class = "box" id="276"></div>
-        <div class = "box" id="277"></div>
-        <div class = "box" id="278"></div>
-        <div class = "box" id="279"></div>
-        <div class = "box" id="280"></div>
-        <div class = "box" id="281"></div>
-        <div class = "box" id="282"></div>
-        <div class = "box" id="283"></div>
-        <div class = "box" id="284"></div>
-        <div class = "box" id="285"></div>
-        <div class = "box" id="286"></div>
-        <div class = "box" id="287"></div>
-        <div class = "box" id="288"></div>
-        <div class = "box" id="289"></div>
-        <div class = "box" id="290"></div>
-        <div class = "box" id="291"></div>
-        <div class = "box" id="292"></div>
-        <div class = "box" id="293"></div>
-        <div class = "box" id="294"></div>
-        <div class = "box" id="295"></div>
-        <div class = "box" id="296"></div>
-        <div class = "box" id="297"></div>
-        <div class = "box" id="298"></div>
-        <div class = "box" id="299"></div>
-        <div class = "box" id="300"></div>
-        <div class = "box" id="301"></div>
-        <div class = "box" id="302"></div>
-        <div class = "box" id="303"></div>
-        <div class = "box" id="304"></div>
-        <div class = "box" id="305"></div>
-        <div class = "box" id="306"></div>
-        <div class = "box" id="307"></div>
-        <div class = "box" id="308"></div>
-        <div class = "box" id="309"></div>
-        <div class = "box" id="310"></div>
-        <div class = "box" id="311"></div>
-        <div class = "box" id="312"></div>
-        <div class = "box" id="313"></div>
-        <div class = "box" id="314"></div>
-        <div class = "box" id="315"></div>
-        <div class = "box" id="316"></div>
-        <div class = "box" id="317"></div>
-        <div class = "box" id="318"></div>
-        <div class = "box" id="319"></div>
-        <div class = "box" id="320"></div>
-        <div class = "box" id="321"></div>
-        <div class = "box" id="322"></div>
-        <div class = "box" id="323"></div>
-        <div class = "box" id="324"></div>
+        <div class = "box" id="253" onclick="setId(253)"></div>
+        <div class = "box" id="254" onclick="setId(254)"></div>
+        <div class = "box" id="255" onclick="setId(255)"></div>
+        <div class = "box" id="256" onclick="setId(256)"></div>
+        <div class = "box" id="257" onclick="setId(257)"></div>
+        <div class = "box" id="258" onclick="setId(258)"></div>
+        <div class = "box" id="259" onclick="setId(259)"></div>
+        <div class = "box" id="260" onclick="setId(260)"></div>
+        <div class = "box" id="261" onclick="setId(261)"></div>
+        <div class = "box" id="262" onclick="setId(262)"></div>
+        <div class = "box" id="263" onclick="setId(263)"></div>
+        <div class = "box" id="264" onclick="setId(264)"></div>
+        <div class = "box" id="265" onclick="setId(265)"></div>
+        <div class = "box" id="266" onclick="setId(266)"></div>
+        <div class = "box" id="267" onclick="setId(267)"></div>
+        <div class = "box" id="268" onclick="setId(268)"></div>
+        <div class = "box" id="269" onclick="setId(269)"></div>
+        <div class = "box" id="270" onclick="setId(270)"></div>
+        <div class = "box" id="271" onclick="setId(271)"></div>
+        <div class = "box" id="272" onclick="setId(272)"></div>
+        <div class = "box" id="273" onclick="setId(273)"></div>
+        <div class = "box" id="274" onclick="setId(274)"></div>
+        <div class = "box" id="275" onclick="setId(275)"></div>
+        <div class = "box" id="276" onclick="setId(276)"></div>
+        <div class = "box" id="277" onclick="setId(277)"></div>
+        <div class = "box" id="278" onclick="setId(278)"></div>
+        <div class = "box" id="279" onclick="setId(279)"></div>
+        <div class = "box" id="280" onclick="setId(280)"></div>
+        <div class = "box" id="281" onclick="setId(281)"></div>
+        <div class = "box" id="282" onclick="setId(282)"></div>
+        <div class = "box" id="283" onclick="setId(283)"></div>
+        <div class = "box" id="284" onclick="setId(284)"></div>
+        <div class = "box" id="285" onclick="setId(285)"></div>
+        <div class = "box" id="286" onclick="setId(286)"></div>
+        <div class = "box" id="287" onclick="setId(287)"></div>
+        <div class = "box" id="288" onclick="setId(288)"></div>
+        <div class = "box" id="289" onclick="setId(289)"></div>
+        <div class = "box" id="290" onclick="setId(290)"></div>
+        <div class = "box" id="291" onclick="setId(291)"></div>
+        <div class = "box" id="292" onclick="setId(292)"></div>
+        <div class = "box" id="293" onclick="setId(293)"></div>
+        <div class = "box" id="294" onclick="setId(294)"></div>
+        <div class = "box" id="295" onclick="setId(295)"></div>
+        <div class = "box" id="296" onclick="setId(296)"></div>
+        <div class = "box" id="297" onclick="setId(297)"></div>
+        <div class = "box" id="298" onclick="setId(298)"></div>
+        <div class = "box" id="299" onclick="setId(299)"></div>
+        <div class = "box" id="300" onclick="setId(300)"></div>
+        
+        <div class = "box" id="301" onclick="setId(301)"></div>
+        <div class = "box" id="302" onclick="setId(302)"></div>
+        <div class = "box" id="303" onclick="setId(303)"></div>
+        <div class = "box" id="304" onclick="setId(304)"></div>
+        <div class = "box" id="305" onclick="setId(305)"></div>
+        <div class = "box" id="306" onclick="setId(306)"></div>
+        <div class = "box" id="307" onclick="setId(307)"></div>
+        <div class = "box" id="308" onclick="setId(308)"></div>
+        <div class = "box" id="309" onclick="setId(309)"></div>
+        <div class = "box" id="310" onclick="setId(310)"></div>
+        <div class = "box" id="311" onclick="setId(311)"></div>
+        <div class = "box" id="312" onclick="setId(312)"></div>
+        <div class = "box" id="313" onclick="setId(313)"></div>
+        <div class = "box" id="314" onclick="setId(314)"></div>
+        <div class = "box" id="315" onclick="setId(315)"></div>
+        <div class = "box" id="316" onclick="setId(316)"></div>
+        <div class = "box" id="317" onclick="setId(317)"></div>
+        <div class = "box" id="318" onclick="setId(318)"></div>
+        <div class = "box" id="319" onclick="setId(319)"></div>
+        <div class = "box" id="320" onclick="setId(320)"></div>
+        <div class = "box" id="321" onclick="setId(321)"></div>
+        <div class = "box" id="322" onclick="setId(322)"></div>
+        <div class = "box" id="323" onclick="setId(323)"></div>
+        <div class = "box" id="324" onclick="setId(324)"></div>
         <div class = "box" id="325"></div>
         <div class = "box" id="326"></div>
         <div class = "box" id="327"></div>
-        <div class = "box" id="328"></div>
-        <div class = "box" id="329"></div>
-        <div class = "box" id="330"></div>
-        <div class = "box" id="331"></div>
-        <div class = "box" id="332"></div>
-        <div class = "box" id="333"></div>
-        <div class = "box" id="334"></div>
-        <div class = "box" id="335"></div>
-        <div class = "box" id="336"></div>
-        <div class = "box" id="337"></div>
-        <div class = "box" id="338"></div>
-        <div class = "box" id="339"></div>
-        <div class = "box" id="340"></div>
-        <div class = "box" id="341"></div>
-        <div class = "box" id="342"></div>
-        <div class = "box" id="343"></div>
-        <div class = "box" id="344"></div>
-        <div class = "box" id="345"></div>
+        <div class = "box" id="328" onclick="setId(328)"></div>
+        <div class = "box" id="329" onclick="setId(329)"></div>
+        <div class = "box" id="330" onclick="setId(330)"></div>
+        <div class = "box" id="331" onclick="setId(331)"></div>
+        <div class = "box" id="332" onclick="setId(332)"></div>
+        <div class = "box" id="333" onclick="setId(333)"></div>
+        <div class = "box" id="334" onclick="setId(334)"></div>
+        <div class = "box" id="335" onclick="setId(335)"></div>
+        <div class = "box" id="336" onclick="setId(336)"></div>
+        <div class = "box" id="337" onclick="setId(337)"></div>
+        <div class = "box" id="338" onclick="setId(338)"></div>
+        <div class = "box" id="339" onclick="setId(339)"></div>
+        <div class = "box" id="340" onclick="setId(340)"></div>
+        <div class = "box" id="341" onclick="setId(341)"></div>
+        <div class = "box" id="342" onclick="setId(342)"></div>
+        <div class = "box" id="343" onclick="setId(343)"></div>
+        <div class = "box" id="344" onclick="setId(344)"></div>
+        <div class = "box" id="345" onclick="setId(345)"></div>
         <div class = "box" id="346"></div>
         <div class = "box" id="347"></div>
         <div class = "box" id="348"></div>
-        <div class = "box" id="349"></div>
-        <div class = "box" id="350"></div>
-        <div class = "box" id="351"></div>
-        <div class = "box" id="352"></div>
-        <div class = "box" id="353"></div>
-        <div class = "box" id="354"></div>
-        <div class = "box" id="355"></div>
-        <div class = "box" id="356"></div>
-        <div class = "box" id="357"></div>
-        <div class = "box" id="358"></div>
-        <div class = "box" id="359"></div>
-        <div class = "box" id="360"></div>
-        <div class = "box" id="361"></div>
-        <div class = "box" id="362"></div>
-        <div class = "box" id="363"></div>
-        <div class = "box" id="364"></div>
-        <div class = "box" id="365"></div>
-        <div class = "box" id="366"></div>
+        <div class = "box" id="349" onclick="setId(349)"></div>
+        <div class = "box" id="350" onclick="setId(350)"></div>
+        <div class = "box" id="351" onclick="setId(351)"></div>
+        <div class = "box" id="352" onclick="setId(352)"></div>
+        <div class = "box" id="353" onclick="setId(353)"></div>
+        <div class = "box" id="354" onclick="setId(354)"></div>
+        <div class = "box" id="355" onclick="setId(355)"></div>
+        <div class = "box" id="356" onclick="setId(356)"></div>
+        <div class = "box" id="357" onclick="setId(357)"></div>
+        <div class = "box" id="358" onclick="setId(358)"></div>
+        <div class = "box" id="359" onclick="setId(359)"></div>
+        <div class = "box" id="360" onclick="setId(360)"></div>
+        <div class = "box" id="361" onclick="setId(361)"></div>
+        <div class = "box" id="362" onclick="setId(362)"></div>
+        <div class = "box" id="363" onclick="setId(363)"></div>
+        <div class = "box" id="364" onclick="setId(364)"></div>
+        <div class = "box" id="365" onclick="setId(365)"></div>
+        <div class = "box" id="366" onclick="setId(366)"></div>
         <div class = "box" id="367"></div>
         <div class = "box" id="368"></div>
         <div class = "box" id="369"></div>
-        <div class = "box" id="370"></div>
-        <div class = "box" id="371"></div>
-        <div class = "box" id="372"></div>
-        <div class = "box" id="373"></div>
-        <div class = "box" id="374"></div>
-        <div class = "box" id="375"></div>
-        <div class = "box" id="376"></div>
-        <div class = "box" id="377"></div>
-        <div class = "box" id="378"></div>
-        <div class = "box" id="379"></div>
-        <div class = "box" id="380"></div>
-        <div class = "box" id="381"></div>
-        <div class = "box" id="382"></div>
-        <div class = "box" id="383"></div>
-        <div class = "box" id="384"></div>
-        <div class = "box" id="385"></div>
-        <div class = "box" id="386"></div>
-        <div class = "box" id="387"></div>
+        <div class = "box" id="370" onclick="setId(370)"></div>
+        <div class = "box" id="371" onclick="setId(371)"></div>
+        <div class = "box" id="372" onclick="setId(372)"></div>
+        <div class = "box" id="373" onclick="setId(373)"></div>
+        <div class = "box" id="374" onclick="setId(374)"></div>
+        <div class = "box" id="375" onclick="setId(375)"></div>
+        <div class = "box" id="376" onclick="setId(376)"></div>
+        <div class = "box" id="377" onclick="setId(377)"></div>
+        <div class = "box" id="378" onclick="setId(378)"></div>
+        <div class = "box" id="379" onclick="setId(379)"></div>
+        <div class = "box" id="380" onclick="setId(380)"></div>
+        <div class = "box" id="381" onclick="setId(381)"></div>
+        <div class = "box" id="382" onclick="setId(382)"></div>
+        <div class = "box" id="383" onclick="setId(383)"></div>
+        <div class = "box" id="384" onclick="setId(384)"></div>
+        <div class = "box" id="385" onclick="setId(385)"></div>
+        <div class = "box" id="386" onclick="setId(386)"></div>
+        <div class = "box" id="387" onclick="setId(387)"></div>
         <div class = "box" id="388"></div>
         <div class = "box" id="389"></div>
         <div class = "box" id="390"></div>
-        <div class = "box" id="391"></div>
-        <div class = "box" id="392"></div>
-        <div class = "box" id="393"></div>
-        <div class = "box" id="394"></div>
-        <div class = "box" id="395"></div>
-        <div class = "box" id="396"></div>
-        <div class = "box" id="397"></div>
-        <div class = "box" id="398"></div>
-        <div class = "box" id="399"></div>
-        <div class = "box" id="400"></div>
-        <div class = "box" id="401"></div>
-        <div class = "box" id="402"></div>
-        <div class = "box" id="403"></div>
-        <div class = "box" id="404"></div>
-        <div class = "box" id="405"></div>
-        <div class = "box" id="406"></div>
-        <div class = "box" id="407"></div>
-        <div class = "box" id="408"></div>
+        <div class = "box" id="391" onclick="setId(391)"></div>
+        <div class = "box" id="392" onclick="setId(392)"></div>
+        <div class = "box" id="393" onclick="setId(393)"></div>
+        <div class = "box" id="394" onclick="setId(394)"></div>
+        <div class = "box" id="395" onclick="setId(395)"></div>
+        <div class = "box" id="396" onclick="setId(396)"></div>
+        <div class = "box" id="397" onclick="setId(397)"></div>
+        <div class = "box" id="398" onclick="setId(398)"></div>
+        <div class = "box" id="399" onclick="setId(399)"></div>
+        <div class = "box" id="400" onclick="setId(400)"></div>
+
+        <div class = "box" id="401" onclick="setId(401)"></div>
+        <div class = "box" id="402" onclick="setId(402)"></div>
+        <div class = "box" id="403" onclick="setId(403)"></div>
+        <div class = "box" id="404" onclick="setId(404)"></div>
+        <div class = "box" id="405" onclick="setId(405)"></div>
+        <div class = "box" id="406" onclick="setId(406)"></div>
+        <div class = "box" id="407" onclick="setId(407)"></div>
+        <div class = "box" id="408" onclick="setId(408)"></div>
         <div class = "box" id="409"></div>
         <div class = "box" id="410"></div>
         <div class = "box" id="411"></div>
-        <div class = "box" id="412"></div>
-        <div class = "box" id="413"></div>
-        <div class = "box" id="414"></div>
-        <div class = "box" id="415"></div>
-        <div class = "box" id="416"></div>
-        <div class = "box" id="417"></div>
-        <div class = "box" id="418"></div>
-        <div class = "box" id="419"></div>
-        <div class = "box" id="420"></div>
-        <div class = "box" id="421"></div>
-        <div class = "box" id="422"></div>
-        <div class = "box" id="423"></div>
-        <div class = "box" id="424"></div>
-        <div class = "box" id="425"></div>
-        <div class = "box" id="426"></div>
-        <div class = "box" id="427"></div>
-        <div class = "box" id="428"></div>
-        <div class = "box" id="429"></div>
+        <div class = "box" id="412" onclick="setId(412)"></div>
+        <div class = "box" id="413" onclick="setId(413)"></div>
+        <div class = "box" id="414" onclick="setId(414)"></div>
+        <div class = "box" id="415" onclick="setId(415)"></div>
+        <div class = "box" id="416" onclick="setId(416)"></div>
+        <div class = "box" id="417" onclick="setId(417)"></div>
+        <div class = "box" id="418" onclick="setId(418)"></div>
+        <div class = "box" id="419" onclick="setId(419)"></div>
+        <div class = "box" id="420" onclick="setId(420)"></div>
+        <div class = "box" id="421" onclick="setId(421)"></div>
+        <div class = "box" id="422" onclick="setId(422)"></div>
+        <div class = "box" id="423" onclick="setId(423)"></div>
+        <div class = "box" id="424" onclick="setId(424)"></div>
+        <div class = "box" id="425" onclick="setId(425)"></div>
+        <div class = "box" id="426" onclick="setId(426)"></div>
+        <div class = "box" id="427" onclick="setId(427)"></div>
+        <div class = "box" id="428" onclick="setId(428)"></div>
+        <div class = "box" id="429" onclick="setId(429)"></div>
         <div class = "box" id="430"></div>
         <div class = "box" id="431"></div>
         <div class = "box" id="432"></div>
-        <div class = "box" id="433"></div>
-        <div class = "box" id="434"></div>
-        <div class = "box" id="435"></div>
-        <div class = "box" id="436"></div>
-        <div class = "box" id="437"></div>
-        <div class = "box" id="438"></div>
-        <div class = "box" id="439"></div>
-        <div class = "box" id="440"></div>
-        <div class = "box" id="441"></div>
+        <div class = "box" id="433" onclick="setId(433)"></div>
+        <div class = "box" id="434" onclick="setId(434)"></div>
+        <div class = "box" id="435" onclick="setId(435)"></div>
+        <div class = "box" id="436" onclick="setId(436)"></div>
+        <div class = "box" id="437" onclick="setId(437)"></div>
+        <div class = "box" id="438" onclick="setId(438)"></div>
+        <div class = "box" id="439" onclick="setId(439)"></div>
+        <div class = "box" id="440" onclick="setId(440)"></div>
+        <div class = "box" id="441" onclick="setId(441)"></div>
     </section>
 </body>
 <script src = "source.js"></script> 

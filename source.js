@@ -5,6 +5,13 @@
  */
 x = "";
 
+
+/**
+ * @type {String}
+ * id selected.
+ */
+id_selected = 0;
+
 /**
  * @type {int[]}
  * possibles values.
@@ -206,3 +213,36 @@ function drawM() {
   }
 }
 
+function setId(id) {
+  id_selected = id;
+  document.getElementById(id_selected).style.backgroundColor = "red";
+  console.log("Here is id:" + id);
+}
+
+function blackCells() {
+  pos = 10;
+  flag = true;
+  while(flag) {
+    for (let i = 0; i != 6; i++) {
+      for (let i = 1; i != 4; i++) {document.getElementById(pos).style.background = "black"; pos++;}
+      pos += 18;
+    }
+    pos += 54;
+    for (let i = 0; i != 3; i++) {
+      for (let i = 0; i != 2; i++) {
+        for (let i = 0; i != 6; i++) {document.getElementById(pos).style.background = "black"; pos++}
+        pos += 9;
+      }
+      pos -= 9;
+    }
+    pos += 72;
+    for (let i = 0; i != 6; i++) {
+      for (let i = 1; i != 4; i++) {document.getElementById(pos).style.background = "black"; pos++;}
+      pos += 18;
+    }
+    flag = false;
+  }
+  
+}
+
+blackCells();

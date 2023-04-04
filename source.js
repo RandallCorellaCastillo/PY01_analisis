@@ -7,6 +7,76 @@ x = "";
 
 
 /**
+ * @type {int[][]}
+ * matUR matrix.
+ * **/
+matUR = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+/**
+ * @type {int[][]}
+ * matUL matrix.
+ * **/
+matUL = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+/**
+ * @type {int[][]}
+ * matMid matrix.
+ * **/
+matMid = [[2, 5, 0, 0, 3, 0, 9, 0, 1],
+        [0, 1, 0, 0, 0, 4, 0, 0, 0],
+        [4, 0, 7, 0, 0, 0, 2, 0, 8],
+        [0, 0, 5, 2, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 9, 8, 1, 0, 0],
+        [0, 4, 0, 0, 0, 3, 0, 0, 0],
+        [0, 0, 0, 3, 6, 0, 0, 7, 2],
+        [0, 7, 0, 0, 0, 0, 0, 0, 3],
+        [9, 0, 3, 0, 0, 0, 6, 0, 4]]
+
+/**
+ * @type {int[][]}
+ * matBL matrix.
+ * **/
+matBL = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+/**
+ * @type {int[][]}
+ * matBR matrix.
+ * **/
+matBR = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+/**
  * @type {String}
  * id selected.
  */
@@ -54,172 +124,261 @@ sudoMatrix =
  */
 function clearMatrix() {
   x = "";
-  sudoMatrix = 
-  [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [x, x, x, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, x, x, x],
-    [x, x, x, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, x, x, x],
-    [x, x, x, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, x, x, x],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  ]
 }
 
+//======================================================================backtraking solve.===================================================================
 /**
- * @abstract shuffle the list of numbers.
- * @param list : list with numnbers.
+ * @abstract seek a 0 in matrix.
+ * @param {*} matrix matrix to solve.
+ * @returns return true if have 0.
  */
-function shuffleArray(list) {
-  for (let i = 0; i < 10; i++) {
-    random = Math.floor(Math.random() *list.length);
-    randomc = Math.floor(Math.random() *list.length);
-    c = list[random];
-    k = list[randomc];
-    list[randomc] = c;
-    list[random] = k;
+function seekC(matrix){
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++)
+      if (matrix[i][j] == 0) return true
   }
-  return list;
+  return false
 }
 
 /**
- * @abstract reset the list.
+ * @abstract valid the pos target.
+ * @param {*} i #row.
+ * @param {*} j #col.
+ * @param {*} num #num to try.
+ * @param {*} matrix #matrix to seek.
+ * @returns true if value is valid.
  */
-function reset() {
-  values = [1,2,3,4,5,6,7,8,9];
-}
-
-
-/**
- * @abstract find the cube from cords.
- * @param {*} n : number.
- * @param {*} x : cord x.
- * @param {*} y : cordy.
- * @param {*} mx : limitx.
- * @param {*} my : limity.
- * @returns 
- */
-function findCube(x, y, mx, my) {
-  dimX = -1*((mx - 8) - x);
-  dimY = -1*((my - 8) - y);
-
-  if(dimX < 3) {
-    if(dimY < 3) {return 0;}
-    if(dimY < 6) {return 1;}
-    if(dimY < 9) {return 2;}
+function valid(i, j, num, matrix) {
+  for (let x = 0; x < 9; x++) {
+    if(matrix[i][x] == num) return false
   }
-  if(dimX < 6) {
-    if(dimY < 3) {return 3;}
-    if(dimY < 6) {return 4;}
-    if(dimY < 9) {return 5;}
+
+  for (let x = 0; x < 9; x++) {
+    if(matrix[x][j] == num) return false
   }
-  if(dimX < 9) {
-    if(dimY < 3) {return 6;}
-    if(dimY < 6) {return 7;}
-    if(dimY < 9) {return 8;}
-  }
-}
-
-/**
- * @abstract verify if the value is valid in this pos.
- * @param {*} n : number.
- * @param {*} x : cord x.
- * @param {*} y : cordy.
- * @param {*} mx : limitx.
- * @param {*} my : limity.
- * @returns 
- */
-function crossVerify(n, x, y, mx, my) {
-  for (let i = mx - 8; i < mx; i++) {if(sudoMatrix[i][y] == n) {return false;}}//if Hor contains a number.
-  for (let j = my - 8; j < my; j++) {if(sudoMatrix[x][j] == n) {return false;}}//if Ver contains a number.
-  return true;
-}
-
-/**
- * @abstract verify if the value is valid in this pos.
- * @param {*} n : number.
- * @param {*} x : cord x.
- * @param {*} y : cordy.
- * @param {*} mx : limitx.
- * @param {*} my : limity.
- * @returns 
- */
-function cubeVerify(n, x, y, mx, my) {
-  cube = findCube(x, y, mx, my);
-  cordx = mx - 8;
-  cordy = my - 8;
-  if(cube == 1) {cordy += 3}
-  if(cube == 2) {cordy += 5}
-  if(cube == 3) {cordx += 2}
-  if(cube == 4) {cordy += 2; cordx += 2}
-  if(cube == 5) {cordy += 5; cordx += 2}
-  if(cube == 6) {cordx += 5}
-  if(cube == 7) {cordy += 3; cordx += 5}
-  if(cube == 8) {cordy += 5; cordx += 5}
-
+  x = i - i % 3
+  y = j - j % 3
   for (let i = 0; i < 3; i++) {
-    var res;
-    for (let j = 0; j < 3; j++) {
-      res += sudoMatrix[i + cordx][j + cordy] + " ";
-      if(sudoMatrix[i + cordx][j + cordy] == n){return false;}
-    }//if Ver contains a number.
-    res += "\n";
+      for (let j = 0; j < 3; j++){
+          if (matrix[i + x][j + y] == num) return false
+      }
   }
-  return true;
+  return true
 }
 
+/**
+ * @abstract Solve a matrix with backtraking
+ * @param {*} row row.
+ * @param {*} col col.
+ * @param {*} matrix matrix to solve.
+ * @returns returns true if have solve.
+ */
+function recSolve(row, col, matrix) {
+  //end cond.
+  if(row == 8 && col == 9 && seekC(matrix) == false) return true
+  else {
+    //index.
+    if(col == 9) {row = row + 1; col = 0}
+    //if pos is not a 0 go to next pos.
+    if(matrix[row][col] != 0) return recSolve(row, col + 1, matrix)
 
-function init_matrix(x, y, mx, my, cant) {
-  //iter the row.
-  for (let i = 0; i != cant; i++ ) {
-    for (let j = x; j < x + 9; j++) { //iter the row.
-      val = Math.floor(Math.random() * 9 + 1);
-      for (let k = y; k < y + 9; k++) {
-        if(crossVerify(val, j, k, mx, my) && cubeVerify(val, j, k, mx, my) && sudoMatrix[j][k] == 0) {
-          sudoMatrix[j][k]=val;
+    //try to any number.
+    for (let i = 1; i < 10; i++) {
+      //valid the pos for the number to try.
+      if( valid(row, col, i, matrix) ) {
+        //matrix pos is now the number.
+        matrix[row][col] = i
+        //if the sudoku have solve with this number
+        if(recSolve(row, col + 1, matrix)) return true
+
+        //if doesn´t have solution with this number reset and try with the next.
+        matrix[row][col] = 0
         }
       }
     }
-  }
+    return false
 }
- 
-function drawM() {
-  clearMatrix();
-  init_matrix(6, 6, 14, 14, 1);
-  init_matrix(0, 0, 8, 8, 1);
-  init_matrix(0, 12, 8, 20, 1);
-  init_matrix(12, 0, 20, 8, 1);
-  init_matrix(12, 12, 20, 20, 1);
-  count = 1;
-  for (let i = 0; i < 21; i++) {
-    for (let j = 0; j < 21; j++) {
-      if(sudoMatrix[i][j] != 0) {
-        document.getElementById(count).innerHTML = sudoMatrix[i][j];
-        
-      }
-      count++;
+
+//======================================================================backtraking solve end.===================================================================
+
+/**
+ * @abstract copy the cuadrant in matrix Mid for the respective cuadrante in all matrix
+ * @param {*} matrixM Mid
+ * @param {*} matrix UL, UR, BL, BR
+ * @param {*} x1 cor x Mid
+ * @param {*} y1 cor y Mid
+ * @param {*} x2 cor x Matrix
+ * @param {*} y2 cor y Matrix
+ */
+function copyMM(matrixM, matrix, x1, y1, x2, y2) {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      matrix[i + x2][j + y2] = matrixM[i + x1][j + y1];
     }
   }
 }
+/**
+ * @abstract fill all matrix with the middle.
+ */
+function fillMatrixWithM() {
+  copyMM(matMid, matUL, 0 ,0, 6, 6);
+  copyMM(matMid, matUR, 0 ,6, 6, 0);
+  copyMM(matMid, matBL, 6 ,0, 0, 6);
+  copyMM(matMid, matBR, 6 ,6, 0, 0);
+}
 
+/**
+ * @abstract solve the 5 matrix.
+ * @returns return true if is solved.
+ */
+function solveMatrix() {
+  if (recSolve(0, 0, matMid)) {
+    fillMatrixWithM();
+    recSolve(0, 0, matUL);
+    recSolve(0, 0, matUR);
+    recSolve(0, 0, matBL);
+    recSolve(0, 0, matBR);
+    return true;
+  }
+  return false;
+}
+
+
+/**
+ * @abstract fill the principal matrix with UL, UR, MID, BL, BR.
+ */
+function fillSudo() {
+  //Primero rellenamos el centro
+  indice = 0;
+  for (i = 6; i < 15; i++) {
+          indice2 = 0;
+          for (j = 6; j < 15; j++) {
+                  sudoMatrix[i][j] = matMid[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  //Segundo arriba izquierda
+  indice = 0;
+  for (i = 0; i < 6; i++) {
+          indice2 = 0;
+          for (j = 0; j < 9; j++) {
+                  sudoMatrix[i][j] = matUL[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  for (i = 6; i < 9; i++) {
+          indice2 = 0;
+          for (j = 0; j < 6; j++) {
+                  sudoMatrix[i][j] = matUL[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  //Tercero arriba derecha
+  indice = 0;
+  for (i = 0; i < 6; i++) {
+          indice2 = 0;
+          for (j = 12; j < 21; j++) {
+                  sudoMatrix[i][j] = matUR[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  for (i = 6; i < 9; i++) {
+          indice2 = 3;
+          for (j = 15; j < 21; j++) {
+                  sudoMatrix[i][j] = matUR[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  //Cuarto abajo izquierda
+  indice = 0;
+  for (i = 12; i < 15; i++) {
+          indice2 = 0;
+          for (j = 0; j < 6; j++) {
+                  sudoMatrix[i][j] = matBL[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  for (i = 15; i < 21; i++) {
+          indice2 = 0;
+          for (j = 0; j < 9; j++) {
+                  sudoMatrix[i][j] = matBL[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+  //Quinto abajo derecha
+  indice = 0;
+  for (i = 12; i < 15; i++) {
+          indice2 = 3;
+          for (j = 15; j < 21; j++) {
+                  sudoMatrix[i][j] = matBR[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+
+  for (i = 15; i < 21; i++) {
+          indice2 = 0;
+          for (j = 12; j < 21; j++) {
+                  sudoMatrix[i][j] = matBR[indice][indice2];
+                  indice2++;
+          };
+          indice++;
+  };
+};
+
+
+//print matrix in console.
+function drawM(matrix) {
+  m = ""
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      m += matrix[i][j] + " ";
+    }
+    m += "\n";
+  }
+  console.log(m);
+}
+
+
+//clear the matrix.
+function clearM(matrix) {
+  for (let i = 0; i < 9; i++)
+    for (let j = 0; j < 9; j++) matrix[i][j] = 0;
+}
+
+/**
+ * @abstract draw the principal matrix.
+ */
+function drawPM() {
+  count = 1;
+  for (let i = 0; i < 21; i++)
+    for (let j = 0; j < 21; j++) {
+      if (sudoMatrix[i][j] != "") {
+        if(Math.floor(Math.random() * 5) == 1) {
+          document.getElementById(count).innerHTML = sudoMatrix[i][j]; 
+        }
+      }
+      count++;
+    }
+}
+
+//============================================================================================================================================================================
 function setId(id) {
   id_selected = id;
 }
-
 
 /**
  * @abstract change color of invalid positions of matrix.
@@ -258,10 +417,11 @@ window.addEventListener("keydown", function (event) {
   if (event.defaultPrevented) {
     return; // Do nothing if the event was already processed
   }
-
   switch (event.key) {
     case "1":
       document.getElementById(id_selected).innerHTML = "1";
+      document.getElementById(id_selected).style.background = "blue";
+
       break;
     case "2":
       document.getElementById(id_selected).innerHTML = "2";
@@ -288,6 +448,10 @@ window.addEventListener("keydown", function (event) {
       document.getElementById(id_selected).innerHTML = "9";
       break;
 
+    case "Backspace":
+        document.getElementById(id_selected).innerHTML = "";
+        break;
+
   // Cancel the default action to avoid it being handled twice
   event.preventDefault();
   }
@@ -296,3 +460,21 @@ window.addEventListener("keydown", function (event) {
 
 //disable divs in invalid positions.
 blackCells();
+
+//test
+
+
+
+solveMatrix();
+fillSudo();
+
+drawPM();
+
+drawM(matUL);
+drawM(matUR);
+
+drawM(matMid);
+
+drawM(matBL);
+drawM(matBR);
+

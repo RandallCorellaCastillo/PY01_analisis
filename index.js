@@ -79,8 +79,8 @@ sudoMatrix =
 
 function fillSudo() {
         //Primero rellenamos el centro
+        indice = 0;
         for (i = 6; i < 15; i++) {
-                indice = 0;
                 indice2 = 0;
                 for (j = 6; j < 15; j++) {
                         sudoMatrix[i][j] = matMid[indice][indice2];
@@ -90,8 +90,8 @@ function fillSudo() {
         };
 
         //Segundo arriba izquierda
-        for (i = 0; i < 9; i++) {
-                indice = 0;
+        indice = 0;
+        for (i = 0; i < 6; i++) {
                 indice2 = 0;
                 for (j = 0; j < 9; j++) {
                         sudoMatrix[i][j] = matUL[indice][indice2];
@@ -100,9 +100,18 @@ function fillSudo() {
                 indice++;
         };
 
+        for (i = 6; i < 9; i++) {
+                indice2 = 0;
+                for (j = 0; j < 6; j++) {
+                        sudoMatrix[i][j] = matUL[indice][indice2];
+                        indice2++;
+                };
+                indice++;
+        };
+
         //Tercero arriba derecha
-        for (i = 0; i < 9; i++) {
-                indice = 0;
+        indice = 0;
+        for (i = 0; i < 6; i++) {
                 indice2 = 0;
                 for (j = 12; j < 21; j++) {
                         sudoMatrix[i][j] = matUR[indice][indice2];
@@ -111,9 +120,27 @@ function fillSudo() {
                 indice++;
         };
 
+        for (i = 6; i < 9; i++) {
+                indice2 = 3;
+                for (j = 15; j < 21; j++) {
+                        sudoMatrix[i][j] = matUR[indice][indice2];
+                        indice2++;
+                };
+                indice++;
+        };
+
         //Cuarto abajo izquierda
-        for (i = 12; i < 21; i++) {
-                indice = 0;
+        indice = 0;
+        for (i = 12; i < 15; i++) {
+                indice2 = 0;
+                for (j = 0; j < 6; j++) {
+                        sudoMatrix[i][j] = matBL[indice][indice2];
+                        indice2++;
+                };
+                indice++;
+        };
+
+        for (i = 15; i < 21; i++) {
                 indice2 = 0;
                 for (j = 0; j < 9; j++) {
                         sudoMatrix[i][j] = matBL[indice][indice2];
@@ -123,8 +150,17 @@ function fillSudo() {
         };
 
         //Quinto abajo derecha
-        for (i = 12; i < 21; i++) {
-                indice = 0;
+        indice = 0;
+        for (i = 12; i < 15; i++) {
+                indice2 = 3;
+                for (j = 15; j < 21; j++) {
+                        sudoMatrix[i][j] = matBR[indice][indice2];
+                        indice2++;
+                };
+                indice++;
+        };
+
+        for (i = 15; i < 21; i++) {
                 indice2 = 0;
                 for (j = 12; j < 21; j++) {
                         sudoMatrix[i][j] = matBR[indice][indice2];

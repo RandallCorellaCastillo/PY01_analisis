@@ -1,13 +1,24 @@
 <html>
  
 <head>
-    <title>"2048"</title>
+    <title>Sudoku Samurai</title>
     <link rel = "stylesheet" href = "gadgets.css"></link>
 </head>
  
 <body style="background-color: white;">
     <h1 class="title"> Sudoku Samurai</h1>
-    <h1 class="reset" id = "reset" onclick="drawM()"> draw </h1>
+
+    <div class="content">
+        <h1 class="reset" id = "reset1" onclick="drawS(25)"> EASY </h1>
+        <h1 class="reset" id = "reset2" onclick="drawS(20)"> MEDIUM </h1>
+        <h1 class="reset" id = "reset3" onclick="drawS(15)"> HARD </h1>
+        <h1 class="reset" id = "reset4" onclick="drawS(12)"> EXTREME </h1>
+    </div>  
+
+    <div class="content2">
+        <h1 class="reset" id = "aStar" onclick="modal1.showModal()"> A* </h1>
+        <h1 class="reset" id = "bc" onclick="modal1.showModal()"> BC </h1>
+    </div>
 
     <section class="board" id = "board">
         <div class = "box" id="1" onclick="setId(1)"></div>
@@ -455,6 +466,11 @@
         <div class = "box" id="441" onclick="setId(441)"></div>
     </section>
 
+    <dialog id="modal1">
+        <h2>Error</h2>
+        <p>Previamente debes haber seleccionado un nivel</p>
+        <button onclick="window.modal1.close();">Cerrar</button>
+    </dialog>
 
 </body>
 <script src = "source.js"></script> 

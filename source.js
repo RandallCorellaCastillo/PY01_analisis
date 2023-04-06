@@ -38,15 +38,15 @@ matUL = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
  * @type {int[][]}
  * matMid matrix.
  * **/
-matMid = [[2, 5, 0, 0, 3, 0, 9, 0, 1],
-        [0, 1, 0, 0, 0, 4, 0, 0, 0],
-        [4, 0, 7, 0, 0, 0, 2, 0, 8],
-        [0, 0, 5, 2, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 9, 8, 1, 0, 0],
-        [0, 4, 0, 0, 0, 3, 0, 0, 0],
-        [0, 0, 0, 3, 6, 0, 0, 7, 2],
-        [0, 7, 0, 0, 0, 0, 0, 0, 3],
-        [9, 0, 3, 0, 0, 0, 6, 0, 4]]
+matMid = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 /**
  * @type {int[][]}
@@ -375,6 +375,90 @@ function drawPM() {
     }
 }
 
+function drawCells(level, min, max) {
+  cells = []
+  count = 0;
+  number = 1;
+  while (count < level) {
+    num = Math.floor(Math.random() * ((max + 1) - min) + min);
+
+    if (num >= ((min + 1) + (21* 0)) && num <= (min + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 1)) && num <= (((min + 1) + (21* 1)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 2)) && num <= (((min + 1) + (21* 2)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 3)) && num <= (((min + 1) + (21* 3)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 4)) && num <= (((min + 1) + (21* 4)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 5)) && num <= (((min + 1) + (21* 5)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 6)) && num <= (((min + 1) + (21* 6)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 7)) && num <= (((min + 1) + (21* 7)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+
+    if (num >= ((min + 1) + (21* 8)) && num <= (((min + 1) + (21* 8)) + 8)) {
+      if (!cells.includes(num)) {
+        cells.push(num);
+        count++;
+      };
+    };
+  };
+
+  cells.sort();
+
+  for (i = 0; i < 21; i++) {
+    for (j = 0; j < 21; j++) {
+      if (cells.includes(number)) {
+        document.getElementById(number).innerHTML = sudoMatrix[i][j]; 
+      };
+      number++;
+    };
+  };
+
+};
+
 //============================================================================================================================================================================
 function setId(id) {
   id_selected = id;
@@ -458,6 +542,22 @@ window.addEventListener("keydown", function (event) {
 }, true);
 
 
+games = 0;
+
+function drawS(level) {
+
+  if (games == 0) {
+    drawCells(level, 132, 309);
+    drawCells(level, 0, 177);
+    drawCells(level, 12, 189);
+    drawCells(level, 252, 429);
+    drawCells(level, 264, 441);
+    games++;
+  };
+};
+
+
+
 //disable divs in invalid positions.
 blackCells();
 
@@ -468,13 +568,12 @@ blackCells();
 solveMatrix();
 fillSudo();
 
-drawPM();
+//drawPM();
 
-drawM(matUL);
-drawM(matUR);
+//drawM(matUL);
+//drawM(matUR);
 
-drawM(matMid);
+//drawM(matMid);
 
-drawM(matBL);
-drawM(matBR);
-
+//drawM(matBL);
+//drawM(matBR);

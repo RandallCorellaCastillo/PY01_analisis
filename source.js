@@ -574,6 +574,8 @@ function giveup() {
         count++;
       };
     };
+  } else {
+    window.modal3.showModal();
   };
 };
 
@@ -592,7 +594,6 @@ blackCells();
 //drawM(matBR);
 
 
-
 function solveS() {
   if (games == 0) {
     //
@@ -603,12 +604,34 @@ function solveS() {
 
 
 function startG() {
-    var x = document.getElementById("dif").value;
-    solveMatrix();
-    fillSudo();
-    if (x == "EASY") drawS(25); 
-    if (x == "MEDIUM") drawS(20);
-    if (x == "HARD") drawS(15);
-    if (x == "EXTREME") drawS(12);
+  var x = document.getElementById("dif").value;
+  flag = true;
+
+  while(flag) {
+    for (let i = 0; i < 6; i++) {
+      num = Math.floor(Math.random() * 8)
+      if(valid(0, i, num, matMid)) {
+        matMid[0][i] = num; 
+      }
+    }
+
+    if(solveMatrix()) {
+      flag = false;
+    } 
+    else {
+      for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+          matMid[i][j] = 0;
+        }
+      }
+    }
+  }
+
+  console.log("FInish");
+  fillSudo();
+  if (x == "EASY") drawS(25); 
+  if (x == "MEDIUM") drawS(20);
+  if (x == "HARD") drawS(15);
+  if (x == "EXTREME") drawS(12);
 };
 

@@ -115,7 +115,7 @@ sudoMatrix =
   [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, x, x, x, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-]
+];
 //=========================================End Globals values====================================================
 
 
@@ -124,7 +124,7 @@ sudoMatrix =
  */
 function clearMatrix() {
   x = "";
-}
+};
 
 //======================================================================backtraking solve.===================================================================
 /**
@@ -136,9 +136,9 @@ function seekC(matrix){
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++)
       if (matrix[i][j] == 0) return true
-  }
-  return false
-}
+  };
+  return false;
+};
 
 /**
  * @abstract valid the pos target.
@@ -150,21 +150,21 @@ function seekC(matrix){
  */
 function valid(i, j, num, matrix) {
   for (let x = 0; x < 9; x++) {
-    if(matrix[i][x] == num) return false
-  }
+    if(matrix[i][x] == num) return false;
+  };
 
   for (let x = 0; x < 9; x++) {
-    if(matrix[x][j] == num) return false
-  }
-  x = i - i % 3
-  y = j - j % 3
+    if(matrix[x][j] == num) return false;
+  };
+  x = i - i % 3;
+  y = j - j % 3;
   for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++){
-          if (matrix[i + x][j + y] == num) return false
-      }
-  }
-  return true
-}
+          if (matrix[i + x][j + y] == num) return false;
+      };
+  };
+  return true;
+};
 
 /**
  * @abstract Solve a matrix with backtraking
@@ -178,26 +178,26 @@ function recSolve(row, col, matrix) {
   if(row == 8 && col == 9 && seekC(matrix) == false) return true
   else {
     //index.
-    if(col == 9) {row = row + 1; col = 0}
+    if(col == 9) {row = row + 1; col = 0};
     //if pos is not a 0 go to next pos.
-    if(matrix[row][col] != 0) return recSolve(row, col + 1, matrix)
+    if(matrix[row][col] != 0) return recSolve(row, col + 1, matrix);
 
     //try to any number.
     for (let i = 1; i < 10; i++) {
       //valid the pos for the number to try.
       if( valid(row, col, i, matrix) ) {
         //matrix pos is now the number.
-        matrix[row][col] = i
+        matrix[row][col] = i;
         //if the sudoku have solve with this number
-        if(recSolve(row, col + 1, matrix)) return true
+        if(recSolve(row, col + 1, matrix)) return true;
 
         //if doesn´t have solution with this number reset and try with the next.
-        matrix[row][col] = 0
-        }
-      }
-    }
-    return false
-}
+        matrix[row][col] = 0;
+        };
+      };
+    };
+    return false;
+};
 
 //======================================================================backtraking solve end.===================================================================
 
@@ -214,9 +214,9 @@ function copyMM(matrixM, matrix, x1, y1, x2, y2) {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       matrix[i + x2][j + y2] = matrixM[i + x1][j + y1];
-    }
-  }
-}
+    };
+  };
+};
 /**
  * @abstract fill all matrix with the middle.
  */
@@ -225,7 +225,7 @@ function fillMatrixWithM() {
   copyMM(matMid, matUR, 0 ,6, 6, 0);
   copyMM(matMid, matBL, 6 ,0, 0, 6);
   copyMM(matMid, matBR, 6 ,6, 0, 0);
-}
+};
 
 /**
  * @abstract solve the 5 matrix.
@@ -239,9 +239,9 @@ function solveMatrix() {
     recSolve(0, 0, matBL);
     recSolve(0, 0, matBR);
     return true;
-  }
+  };
   return false;
-}
+};
 
 
 /**
@@ -342,22 +342,31 @@ function fillSudo() {
 
 //print matrix in console.
 function drawM(matrix) {
-  m = ""
+  m = "";
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       m += matrix[i][j] + " ";
-    }
+    };
     m += "\n";
-  }
+  };
   console.log(m);
-}
+};
 
 
 //clear the matrix.
-function clearM(matrix) {
-  for (let i = 0; i < 9; i++)
-    for (let j = 0; j < 9; j++) matrix[i][j] = 0;
-}
+function clearM() {
+  count = 1;
+  games = 0;
+  for (let i = 0; i < 21; i++) {
+    for (let j = 0; j < 21; j++) {
+      if (document.getElementById(count)) {
+        sudoMatrix[i][j] = 0;
+        document.getElementById(count).innerHTML = ""; 
+      };
+      count++;
+    };
+  };
+};
 
 /**
  * @abstract draw the principal matrix.
@@ -369,14 +378,14 @@ function drawPM() {
       if (sudoMatrix[i][j] != "") {
         if(Math.floor(Math.random() * 5) == 1) {
           document.getElementById(count).innerHTML = sudoMatrix[i][j]; 
-        }
-      }
+        };
+      };
       count++;
-    }
-}
+    };
+};
 
 function drawCells(level, min, max) {
-  cells = []
+  cells = [];
   count = 0;
   number = 1;
   while (count < level) {
@@ -462,7 +471,7 @@ function drawCells(level, min, max) {
 //============================================================================================================================================================================
 function setId(id) {
   id_selected = id;
-}
+};
 
 /**
  * @abstract change color of invalid positions of matrix.
@@ -476,23 +485,23 @@ function blackCells() {
     for (let i = 0; i != 6; i++) {
       for (let i = 1; i != 4; i++) {document.getElementById(pos).style.background = "black"; pos++;}
       pos += 18;
-    }
+    };
     pos += 54;
     for (let i = 0; i != 3; i++) {
       for (let i = 0; i != 2; i++) {
         for (let i = 0; i != 6; i++) {document.getElementById(pos).style.background = "black"; pos++}
         pos += 9;
-      }
+      };
       pos -= 9;
-    }
+    };
     pos += 72;
     for (let i = 0; i != 6; i++) {
       for (let i = 1; i != 4; i++) {document.getElementById(pos).style.background = "black"; pos++;}
       pos += 18;
-    }
+    };
     flag = false;
-  }
-}
+  };
+};
 
 
 
@@ -504,8 +513,6 @@ window.addEventListener("keydown", function (event) {
   switch (event.key) {
     case "1":
       document.getElementById(id_selected).innerHTML = "1";
-      document.getElementById(id_selected).style.background = "blue";
-
       break;
     case "2":
       document.getElementById(id_selected).innerHTML = "2";
@@ -556,18 +563,24 @@ function drawS(level) {
   };
 };
 
-
+function giveup() {
+  if (games != 0) {
+    count = 1;
+    for (let i = 0; i < 21; i++) {
+      for (let j = 0; j < 21; j++) {
+        if (document.getElementById(count)) {
+          document.getElementById(count).innerHTML = sudoMatrix[i][j]; 
+        }; 
+        count++;
+      };
+    };
+  };
+};
 
 //disable divs in invalid positions.
 blackCells();
 
 //test
-
-
-
-solveMatrix();
-fillSudo();
-
 //drawPM();
 
 //drawM(matUL);
@@ -579,11 +592,23 @@ fillSudo();
 //drawM(matBR);
 
 
+
+function solveS() {
+  if (games == 0) {
+    //
+  } else {
+    window.modal1.showModal();
+  };
+};
+
+
 function startG() {
     var x = document.getElementById("dif").value;
+    solveMatrix();
+    fillSudo();
     if (x == "EASY") drawS(25); 
     if (x == "MEDIUM") drawS(20);
     if (x == "HARD") drawS(15);
     if (x == "EXTREME") drawS(12);
-}
+};
 

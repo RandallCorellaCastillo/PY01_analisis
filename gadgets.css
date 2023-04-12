@@ -57,11 +57,6 @@ body{
     justify-content: right;
 }
 
-.content2 {
-    display: grid;
-    justify-content: left;
-    line-height: 25px;
-}
 
 .box {
     background: white;

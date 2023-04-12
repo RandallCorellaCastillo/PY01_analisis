@@ -24,11 +24,10 @@
     <div class="content">
         <h1 class="reset" id = "start" onclick="startG()"> START </h1>
         <h1 class="reset" id = "help" onclick="modalH.showModal()"> ? </h1>
+        <h1 class="reset" id = "giveup" onclick="giveup()">GIVE UP</h1>
+        <h1 class="reset" id = "solve" onclick="solveS()">SOLVE</h1>
+        <h1 class="reset" id = "clear" onclick="clearM()">CLEAR</h1>
     </div>  
-
-    <div class="content2">
-        <h1 class="reset" id = "solve" onclick="modal1.showModal()"> Solve </h1>
-    </div>
 
     <section class="board" id = "board">
         <div class = "box" id="1" onclick="setId(1)"></div>
@@ -476,11 +475,16 @@
         <div class = "box" id="441" onclick="setId(441)"></div>
     </section>
 
-    <dialog id="modal1">
+    <dialog id="modal1" class = "helpBox">
         <h2>Error</h2>
-        <p>Previamente debes haber seleccionado un nivel</p>
+        <p>No debes estar jugando si quieres resolver un soduko propio</p>
         <button onclick="window.modal1.close();">Cerrar</button>
-        
+    </dialog>
+
+    <dialog id="modal2" class = "helpBox">
+        <h2>Error</h2>
+        <p>Soduko invalido, intentalo de nuevo</p>
+        <button onclick="window.modal2.close();">Cerrar</button>
     </dialog>
 
     <dialog id="modalH" class = "helpBox">

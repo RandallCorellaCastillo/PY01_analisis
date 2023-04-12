@@ -15,7 +15,7 @@
         <option> EXTREME </option>  
     </select>  
 
-    <select Name= "alg" Size= "type" class = "dropdown">  
+    <select id = "alg" Size= "type" class = "dropdown">  
         <option> A* </option>  
         <option> BC </option>  
     </select>  
@@ -493,6 +493,11 @@
         <button onclick="window.modal3.close();">Cerrar</button>
     </dialog>
 
+    <dialog id="modal4" class = "helpBox">
+        <h2>Error</h2>
+        <p>Debes ingresar al menos un valor en el soduko</p>
+        <button onclick="window.modal4.close();">Cerrar</button>
+    </dialog>
 
     <dialog id="modalH" class = "helpBox">
         <h2>Ayuda</h2>

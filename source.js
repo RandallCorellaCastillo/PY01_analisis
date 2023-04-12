@@ -118,7 +118,6 @@ sudoMatrix =
 ];
 //=========================================End Globals values====================================================
 
-
 /**
  * @Abstract Clear the matrix.
  */
@@ -243,6 +242,24 @@ function solveMatrix() {
   return false;
 };
 
+function solveMatrixAux() {
+  if (!recSolve(0, 0, matMid)) {
+    return false;
+  };
+  if (!recSolve(0, 0, matUL)) {
+    return false;
+  };
+  if (!recSolve(0, 0, matUR)) {
+    return false;
+  };
+  if (!recSolve(0, 0, matBL)) {
+    return false;
+  }
+  if (!recSolve(0, 0, matBR)) {
+    return false;
+  };
+  return true;
+};
 
 /**
  * @abstract fill the principal matrix with UL, UR, MID, BL, BR.
@@ -359,13 +376,14 @@ function clearM() {
   games = 0;
   for (let i = 0; i < 21; i++) {
     for (let j = 0; j < 21; j++) {
-      if (document.getElementById(count)) {
+      if (sudoMatrix[i][j] != "") {
         sudoMatrix[i][j] = 0;
         document.getElementById(count).innerHTML = ""; 
       };
       count++;
     };
   };
+  console.log(sudoMatrix);
 };
 
 /**
@@ -376,9 +394,7 @@ function drawPM() {
   for (let i = 0; i < 21; i++)
     for (let j = 0; j < 21; j++) {
       if (sudoMatrix[i][j] != "") {
-        if(Math.floor(Math.random() * 5) == 1) {
-          document.getElementById(count).innerHTML = sudoMatrix[i][j]; 
-        };
+        document.getElementById(count).innerHTML = sudoMatrix[i][j]; 
       };
       count++;
     };
@@ -593,10 +609,23 @@ blackCells();
 //drawM(matBL);
 //drawM(matBR);
 
-
 function solveS() {
+  var x = document.getElementById("alg").value;
+
   if (games == 0) {
-    //
+    if (validateZeros()) {
+      divideMat();
+      if (x == "BC") {
+        if (solveMatrixAux()) {
+          fillSudo();
+          drawPM();
+        } else {
+          window.modal2.showModal();
+        };
+      };
+    } else {
+      window.modal4.showModal();
+    };
   } else {
     window.modal1.showModal();
   };
@@ -635,3 +664,88 @@ function startG() {
   if (x == "EXTREME") drawS(12);
 };
 
+
+function validateZeros() {
+  count = 1;
+  flag = false;
+  for (i = 0; i < 21; i++) {
+    for (j = 0; j < 21; j++) {
+      if (document.getElementById(count).innerHTML != "") {
+        flag = true;
+      };
+      count++;
+    };
+  };
+
+  return flag;
+};
+
+
+function divideMat() {
+  count = 1;
+  for (let i = 0; i < 21; i++) {
+    for (let j = 0; j < 21; j++) {
+      if (document.getElementById(count).innerHTML == "") {
+        if (document.getElementById(count).style.background != "black") {
+          sudoMatrix[i][j] = 0;
+        } else {
+          sudoMatrix[i][j] = "";
+        };
+      } else{
+        sudoMatrix[i][j] = parseInt(document.getElementById(count).innerHTML, 10);
+      };
+      count++;
+    };
+  };
+
+  indice = 0;
+  for (i = 0; i < 9; i++) {
+    indice2 = 0;
+    for (j = 0; j < 9; j++) {
+      matUL[indice][indice2] = sudoMatrix[i][j];
+      indice2++;
+    };
+    indice++;
+  };
+
+  indice = 0;
+  for (i = 0; i < 9; i++) {
+    indice2 = 0;
+    for (j = 12; j < 21; j++) {
+      matUR[indice][indice2] = sudoMatrix[i][j];
+      indice2++;
+    };
+    indice++;
+  };
+
+  indice = 0;
+  for (i = 6; i < 15; i++) {
+    indice2 = 0;
+    for (j = 6; j < 15; j++) {
+      matMid[indice][indice2] = sudoMatrix[i][j];
+      indice2++;
+    };
+    indice++;
+  };
+
+  indice = 0;
+  for (i = 12; i < 21; i++) {
+    indice2 = 0;
+    for (j = 0; j < 9; j++) {
+      matBL[indice][indice2] = sudoMatrix[i][j];
+      indice2++;
+    };
+    indice++;
+  };
+
+  indice = 0;
+  for (i = 12; i < 21; i++) {
+    indice2 = 0;
+    for (j = 12; j < 21; j++) {
+      matBR[indice][indice2] = sudoMatrix[i][j];
+      indice2++;
+    };
+    indice++;
+  };
+  
+};

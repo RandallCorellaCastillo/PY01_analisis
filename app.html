@@ -1,5 +1,5 @@
 <html>
- 
+    
 <head>
     <title>Sudoku Samurai</title>
     <link rel = "stylesheet" href = "gadgets.css"></link>
@@ -8,16 +8,26 @@
 <body style="background-color: white;">
     <h1 class="title"> Sudoku Samurai</h1>
 
+    <select id = "dif" Size= "nivel" class = "dropdown">  
+        <option> EASY </option>  
+        <option> MEDIUM </option>  
+        <option> HARD </option>  
+        <option> EXTREME </option>  
+    </select>  
+
+    <select Name= "alg" Size= "type" class = "dropdown">  
+        <option> A* </option>  
+        <option> BC </option>  
+    </select>  
+
+
     <div class="content">
-        <h1 class="reset" id = "reset1" onclick="drawS(25)"> EASY </h1>
-        <h1 class="reset" id = "reset2" onclick="drawS(20)"> MEDIUM </h1>
-        <h1 class="reset" id = "reset3" onclick="drawS(15)"> HARD </h1>
-        <h1 class="reset" id = "reset4" onclick="drawS(12)"> EXTREME </h1>
+        <h1 class="reset" id = "start" onclick="startG()"> START </h1>
+        <h1 class="reset" id = "help" onclick="modalH.showModal()"> ? </h1>
     </div>  
 
     <div class="content2">
-        <h1 class="reset" id = "aStar" onclick="modal1.showModal()"> A* </h1>
-        <h1 class="reset" id = "bc" onclick="modal1.showModal()"> BC </h1>
+        <h1 class="reset" id = "solve" onclick="modal1.showModal()"> Solve </h1>
     </div>
 
     <section class="board" id = "board">
@@ -470,7 +480,20 @@
         <h2>Error</h2>
         <p>Previamente debes haber seleccionado un nivel</p>
         <button onclick="window.modal1.close();">Cerrar</button>
+        
     </dialog>
+
+    <dialog id="modalH" class = "helpBox">
+        <h2>Ayuda</h2>
+        <p>Para iniciar a jugar debe presionar el boton START, si no eligio un nivel de dificultad, se asignara automaticamente en facil.<br/><br/>
+            En caso de necesitar ayuda, presione el boton SOLVE para solucionar el sudoku.<br/><br/>
+            Si desea reiniciar el sudoku, presione el boton CLEAR y 
+            posteriormente el boton START. 
+        </p>
+        <button onclick="window.modalH.close();">Cerrar</button>
+    </dialog>
+
+
 
 </body>
 <script src = "source.js"></script> 

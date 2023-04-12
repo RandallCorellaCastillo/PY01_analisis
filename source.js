@@ -1,3 +1,5 @@
+
+
 //=========================================Globals values====================================================
 /**
  * @type {String}
@@ -577,3 +579,13 @@ fillSudo();
 
 //drawM(matBL);
 //drawM(matBR);
+
+
+function startG() {
+    var x = document.getElementById("dif").value;
+    if (x == "EASY") drawS(25); 
+    if (x == "MEDIUM") drawS(20);
+    if (x == "HARD") drawS(15);
+    if (x == "EXTREME") drawS(12);
+}
+

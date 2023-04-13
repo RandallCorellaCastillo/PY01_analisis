@@ -379,6 +379,9 @@ function clearM() {
       if (sudoMatrix[i][j] != "") {
         sudoMatrix[i][j] = 0;
         document.getElementById(count).innerHTML = ""; 
+        if (document.getElementById(count).style.background == "red") {
+          document.getElementById(count).style.background = "white";
+        };
       };
       count++;
     };

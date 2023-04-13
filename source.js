@@ -529,40 +529,90 @@ window.addEventListener("keydown", function (event) {
   switch (event.key) {
     case "1":
       document.getElementById(id_selected).innerHTML = "1";
+      if (games != 0) {
+        drawMiss(id_selected, 1);
+      };
       break;
     case "2":
       document.getElementById(id_selected).innerHTML = "2";
+      if (games != 0) {
+        drawMiss(id_selected, 2);
+      };
       break;
     case "3":
       document.getElementById(id_selected).innerHTML = "3";
+      if (games != 0) {
+        drawMiss(id_selected, 3);
+      };
       break;
     case "4":
       document.getElementById(id_selected).innerHTML = "4";
+      if (games != 0) {
+        drawMiss(id_selected, 4);
+      };
       break;
     case "5":
       document.getElementById(id_selected).innerHTML = "5";
+      if (games != 0) {
+        drawMiss(id_selected, 5);
+      };
       break;
     case "6":
       document.getElementById(id_selected).innerHTML = "6";
+      if (games != 0) {
+        drawMiss(id_selected, 6);
+      };
       break;
     case "7":
       document.getElementById(id_selected).innerHTML = "7";
+      if (games != 0) {
+        drawMiss(id_selected, 7);
+      };
       break;
     case "8":
       document.getElementById(id_selected).innerHTML = "8";
+      if (games != 0) {
+        drawMiss(id_selected, 8);
+      };
       break;
     case "9":
       document.getElementById(id_selected).innerHTML = "9";
+      if (games != 0) {
+        drawMiss(id_selected, 9);
+      };
       break;
 
     case "Backspace":
         document.getElementById(id_selected).innerHTML = "";
+
+        if (games != 0) {
+          if (document.getElementById(id_selected).style.background == "red") {
+            document.getElementById(id_selected).style.background = "white"
+          };
+        };
+
         break;
 
   // Cancel the default action to avoid it being handled twice
   event.preventDefault();
   }
 }, true);
+
+function drawMiss(id, num) {
+  count = 1;
+  for (let i = 0; i < 21; i++) {
+    for (let j = 0; j < 21; j++) {
+      if (id == count) {
+        if (sudoMatrix[i][j] != num) {
+          document.getElementById(id).style.background = "red"
+        } else {
+          document.getElementById(id).style.background = "white"
+        };
+      };
+      count++;
+    };
+  };
+};
 
 
 games = 0;
@@ -614,13 +664,17 @@ function solveS() {
 
   if (games == 0) {
     if (validateZeros()) {
-      divideMat();
       if (x == "BC") {
-        if (solveMatrixAux()) {
-          fillSudo();
-          drawPM();
+        if (divideMat()) {
+          if (solveMatrixAux()) {
+            fillSudo();
+            drawPM();
+          } else {
+            window.modal2.showModal();
+          };
         } else {
-          window.modal2.showModal();
+          clearM();
+          window.modal5.showModal();
         };
       };
     } else {
@@ -641,8 +695,8 @@ function startG() {
       num = Math.floor(Math.random() * 8)
       if(valid(0, i, num, matMid)) {
         matMid[0][i] = num; 
-      }
-    }
+      };
+    };
 
     if(solveMatrix()) {
       flag = false;
@@ -651,10 +705,10 @@ function startG() {
       for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
           matMid[i][j] = 0;
-        }
-      }
-    }
-  }
+        };
+      };
+    };
+  };
 
   console.log("FInish");
   fillSudo();
@@ -680,6 +734,20 @@ function validateZeros() {
   return flag;
 };
 
+function validateInput(matrix) {
+
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if(matrix[i][j] != 0) {
+        val = matrix[i][j];
+        matrix[i][j] = 0;
+        if(! valid(i, j, val, matrix) ) return false;
+      }
+
+    }
+  } 
+  return true;
+}
 
 function divideMat() {
   count = 1;
@@ -747,5 +815,22 @@ function divideMat() {
     };
     indice++;
   };
-  
+
+  if(!validateInput(matUR)) {
+    return false;
+  }
+  if(!validateInput(matBL)) {
+    return false;
+  };
+  if(!validateInput(matMid)) {
+    return false;
+  };
+  if(!validateInput(matUL)) {
+    return false;
+  };
+  if(!validateInput(matUL)) {
+    return false;
+  };
+
+  return true;
 };

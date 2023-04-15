@@ -837,3 +837,187 @@ function divideMat() {
 
   return true;
 };
+
+
+//======================================================= A* =========================================================
+open = [];
+close = []; 
+
+function AStarSolve (matrix) {
+  //estimateCost
+  costeE = 81 * 9;
+  //actualCost
+  costG = 0;
+  //matrix - x - y - num - cost
+  open.push([matrix, 0, 0, 0, costeE]);
+  path = [];
+  flag = false;
+
+  while(open.length != 0) {
+    tempComplete = seekM(open); //path f(n) lower.
+    temp = tempComplete[0];
+    path.push(temp);
+    //drawM(temp);
+    if (goalSolve(temp)) { flag = true; console.log("cant of nodes in open list: " + open.length); break; }
+    
+    if (!possibleSolve(temp)) {
+      close.push(temp); //+++++++
+      pos = seekIndex(open, temp);
+      open = remove(open, pos);
+    }
+    //iter for test all nodes.
+    for (let i = 0; i < 9; i++) {    
+      for (let j = 0; j < 9; j++) {     
+        //if pos is valid to try.
+        if (temp[i][j] == 0) {
+          candidates = [];
+          candidates = calculcateCandidates(temp, i, j);//validate candidates to generate new valids nodes.
+          iter = candidates.length;//open new nodes with candidates.
+          for (let x = 0; x < iter; x++) {
+            temp[i][j] = candidates[0];//new state
+            if (validateList(close, temp)) {//valid if state is not in close list.
+              open.push([fixP(temp), i, j, candidates[0], (tempComplete[4] + iter - 9)]); //pushy new state in list if is possible.
+            }
+            temp[i][j] = 0; //reset change of state for try other.
+            candidates.shift(); //next candidate.
+          }      
+        }
+      } 
+    }
+    //-----------------------------------
+    close.push(temp); //+++++
+    index = seekIndex(open, temp);
+    open = remove(open, index);
+    //-----------------------------------
+  }
+  if (flag) {
+    return path;
+  } else {
+    return path = [-1]; //if doesnt have solve.
+  }
+}
+
+function startASolve(matrix)  {
+  path = AStarSolve(matrix);
+  if(path[0] != -1) {
+    for (let x = 0; x < path.length; x++) {
+      drawM(path[x]);
+    }
+    console.log(path.length);
+  } else {
+    console.log("is not solve");
+  }
+}
+
+//startASolve(matUR);
+//console.log("x");
+//startASolve(m1);
+
+//open.length; printOpenList(open, open.length);
+
+function seekIndex(list, matrix) {
+  len = list.length;
+  index = 0;
+  for (let node = 0; node < len; node++) {
+    if (list[node][0] == matrix) {
+      index = node;
+      break;
+    }
+  }
+  return index;
+}
+function remove (list, pos) {
+  newL = [];
+  for (let iter = 0; iter < list.length; iter++) {
+    if (pos != iter) {
+      newL.push(list[iter]);
+      //console.log(list[iter]);
+      //console.log("!");
+    }
+  }
+  return newL;
+}
+
+function fixP (matrix) {
+  final = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+  for (let i = 0; i < 9; i++) {    
+    for (let j = 0; j < 9; j++) {  
+      final[i][j] = matrix[i][j];
+    }
+  }
+  return final;
+}
+
+function goalSolve(matrix) {
+  for (let i = 0; i < 9; i++) {    
+    for (let j = 0; j < 9; j++) {   
+      if(matrix[i][j] == 0) return false;
+    }
+  }
+  return true;
+}
+
+function possibleSolve(matrix) {
+  for (let i = 0; i < 9; i++) {    
+    for (let j = 0; j < 9; j++) {   
+      if (matrix[i][j] == 0) {
+        candidates = calculcateCandidates(matrix, i, j);
+        if(candidates.length > 0) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function seekM(open) {
+  temp = open[0];
+  for (let x = 0; x < open.length; x++){
+    if (open[x][4] < temp[4]) {
+      temp = open[x];
+    }
+  }
+  return temp;
+}
+
+function validateList(list, matrix) {
+  for (let state = 0; state <  list.length; state++) {
+
+    if(list[state] == matrix) {
+      return false;
+    }
+
+  }
+  return true;
+}
+
+
+
+function calculcateCandidates (matrix, i, j) {
+  candidates = [];
+  for (let x = 1; x < 10; x++) {
+    if(valid(i, j, x, matrix)) {
+      candidates.push(x);
+    }
+  }
+  return candidates;
+}
+
+
+function printOpenList(open, max) {
+  for(let no = 0; no < max; no++) {
+    pm = open[no][0];
+    drawM(pm);
+    console.log("f(n) : " + open[no][4]);
+  }
+  console.log("sixe of openList : " + max);
+}
